@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return "Halaman Home";
-});
+
 
 // shortcut kalo emang mau hanya return view aja
 // https://laravel.com/docs/8.x/routing#view-routes
@@ -26,12 +25,21 @@ Route::get('/user/{id}', function($id) {
     return 'User '.$id;
 });
 
+// ///////
 
+Route::get('/', function () {
+    
+    // ini pake depedency injection View
+    return View::make('home');
+});
 
 Route::get("/about", function() {
-    return "Halaman about";
+    return view('about', [
+        "nama" => "Rizal Wibowo",
+        "email" => "zal@mail.com"
+    ]);
 });
 
 Route::get("/blog", function() {
-    return "Halaman Blog";
+    return view('posts');
 });
