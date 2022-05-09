@@ -30,16 +30,21 @@ Route::get('/user/{id}', function($id) {
 Route::get('/', function () {
     
     // ini pake depedency injection View
-    return View::make('home');
+    return View::make('home', [
+        "title" => "beranda"
+    ]);
 });
 
 Route::get("/about", function() {
     return view('about', [
+        "title" => "about",
         "nama" => "Rizal Wibowo",
         "email" => "zal@mail.com"
     ]);
 });
 
 Route::get("/acara", function() {
-    return view('events');
+    return view('events', [
+        "title" => "acara"
+    ]);
 });
