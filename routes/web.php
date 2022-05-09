@@ -40,6 +40,6 @@ Route::get("/about", function() {
     ]);
 });
 
-Route::get("/blog", function() {
-    return view('posts');
+Route::get("/acara", function() {
+    return view('events');
 });
