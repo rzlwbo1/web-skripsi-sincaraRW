@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
+use App\Models\Acara;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,31 +47,11 @@ Route::get("/about", function() {
 
 
 
-
-
 Route::get("/acara", function() {
-
-  $event_posts = [
-
-    [
-        "title" => "Gotong Royong",
-        "slug" => "gotong-royong",
-        "author" => "Ketua RW",
-        "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, nisi doloremque nostrum voluptate labore rerum accusantium nobis ea consequatur! Reprehenderit placeat molestiae atque quas consectetur numquam labore nam eum voluptatem assumenda voluptates, veniam sint, deleniti ad totam sapiente delectus? Eius vitae, magnam cumque soluta quia perferendis inventore atque tenetur, porro reprehenderit excepturi pariatur quaerat, repudiandae ullam esse at debitis assumenda dolorem culpa? Est quaerat praesentium mollitia voluptates nulla, eaque in totam doloribus sapiente harum fugiat unde illo, quibusdam facere? Tempora?"
-    ],
-  
-    [
-      "title" => "17 agustusan",
-      "slug" => "17-agustusan",
-      "author" => "Ketua RT",
-      "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, nisi doloremque nostrum voluptate labore rerum accusantium nobis ea consequatur! Reprehenderit placeat molestiae atque quas consectetur numquam labore nam eum voluptatem assumenda voluptates, veniam sint, deleniti ad totam sapiente delectus? Eius vitae, magnam cumque soluta quia perferendis inventore atque tenetur, porro reprehenderit excepturi pariatur quaerat, repudiandae ullam esse at debitis assumenda dolorem culpa? Est quaerat praesentium mollitia voluptates nulla, eaque in totam doloribus sapiente harum fugiat unde illo, quibusdam facere? Tempora?"
-    ],
-  
-  ];
 
   return view('events', [
       "title" => "acara",
-      "events" => $event_posts,
+      "events" => Acara::all(),
   ]);
 });
 
@@ -77,37 +59,13 @@ Route::get("/acara", function() {
 // single acara
 Route::get("/acara/{slug}", function($slug) {
 
-  // data dummy
-  $event_posts = [
+  return view('event', [
+    "title" => $slug,
+    "event" => Acara::find($slug),
+  ]);
 
-    [
-      "title" => "Gotong Royong",
-      "slug" => "gotong-royong",
-      "author" => "Ketua RW",
-      "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, nisi doloremque nostrum voluptate labore rerum accusantium nobis ea consequatur! Reprehenderit placeat molestiae atque quas consectetur numquam labore nam eum voluptatem assumenda voluptates, veniam sint, deleniti ad totam sapiente delectus? Eius vitae, magnam cumque soluta quia perferendis inventore atque tenetur, porro reprehenderit excepturi pariatur quaerat, repudiandae ullam esse at debitis assumenda dolorem culpa? Est quaerat praesentium mollitia voluptates nulla, eaque in totam doloribus sapiente harum fugiat unde illo, quibusdam facere? Tempora?"
-    ],
-  
-    [
-      "title" => "17 agustusan",
-      "slug" => "17-agustusan",
-      "author" => "Ketua RT",
-      "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, nisi doloremque nostrum voluptate labore rerum accusantium nobis ea consequatur! Reprehenderit placeat molestiae atque quas consectetur numquam labore nam eum voluptatem assumenda voluptates, veniam sint, deleniti ad totam sapiente delectus? Eius vitae, magnam cumque soluta quia perferendis inventore atque tenetur, porro reprehenderit excepturi pariatur quaerat, repudiandae ullam esse at debitis assumenda dolorem culpa? Est quaerat praesentium mollitia voluptates nulla, eaque in totam doloribus sapiente harum fugiat unde illo, quibusdam facere? Tempora?"
-    ],
-  
-  ];
 
-  foreach ($event_posts as $event) {
-    if($event['slug'] === $slug) {
-
-      return view('event', [
-        "event" => $event,
-        "title" => $slug
-      ]);
-
-    }
-  }
-
-  // cara rizal
+  //// cara rizal ///
 
   // // cari index berdasarkan slug
   // $indexSlug = array_search($slug, array_column($event_posts, 'slug'));
