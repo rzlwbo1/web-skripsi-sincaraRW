@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\AcaraController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
-use App\Models\Acara;
+// use App\Models\Acara;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,33 +48,7 @@ Route::get("/about", function() {
 
 
 
-Route::get("/acara", function() {
-
-  return view('events', [
-      "title" => "acara",
-      "events" => Acara::all(),
-  ]);
-});
-
+Route::get("/acara", [AcaraController::class, 'index']);
 
 // single acara
-Route::get("/acara/{slug}", function($slug) {
-
-  return view('event', [
-    "title" => $slug,
-    "event" => Acara::find($slug),
-  ]);
-
-
-  //// cara rizal ///
-
-  // // cari index berdasarkan slug
-  // $indexSlug = array_search($slug, array_column($event_posts, 'slug'));
-  // // stelah itu cari dari array berdasarkan index yg sudah dapat
-  // $acara = $event_posts[$indexSlug];
-
-  // return view("event", [
-  //   'acara' => $acara,
-  // ]);
-
-});
+Route::get("/acara/{slug}", [AcaraController::class, 'show']);

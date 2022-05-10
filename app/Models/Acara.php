@@ -39,6 +39,7 @@ class Acara
 
     // panggil method static di atas
     $events = self::all();
+
     // $event = [];
     // foreach ($events as $e) {
     //   if($e['slug'] === $slug) {
@@ -49,8 +50,7 @@ class Acara
     // }
 
     // kode di aats di sederhanakan jadi di bawah
-
-    return $events->where('slug', $slug);
+    return $events->firstWhere('slug', $slug);
   }
 
   
