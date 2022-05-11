@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Acara;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
-class AcaraController extends Controller
+class EventController extends Controller
 {
 
   public function index()
   {
     return view('events', [
       "title" => 'acara',
-      "events" => Acara::all(),
+      "events" => Event::all(),
     ]);
   }
 
@@ -20,7 +20,7 @@ class AcaraController extends Controller
   {
     return view('event', [
       "title" => $slug,
-      "event" => Acara::find($slug),
+      "event" => Event::where('slug', $slug)->first(),
     ]);
   }
 

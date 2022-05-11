@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AcaraController;
-use Illuminate\Support\Facades\Route;
+
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 
 // use App\Models\Acara;
 
@@ -48,7 +49,7 @@ Route::get("/about", function() {
 
 
 
-Route::get("/acara", [AcaraController::class, 'index']);
+Route::get("/acara", [EventController::class, 'index']);
 
 // single acara
-Route::get("/acara/{slug}", [AcaraController::class, 'show']);
+Route::get("/acara/{slug}", [EventController::class, 'show']);
