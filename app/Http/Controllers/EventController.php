@@ -17,12 +17,21 @@ class EventController extends Controller
     ]);
   }
 
-  public function show($id)
+  // public function show($id)
+  // {
+  //   return view('event', [
+  //     "title" => "Post acara",
+  //     // "event" => Event::where('slug', $slug)->first(),
+  //     "event" => Event::find($id),
+  //   ]);
+  // }
+
+  public function show(Event $event)
   {
     return view('event', [
       "title" => "Post acara",
       // "event" => Event::where('slug', $slug)->first(),
-      "event" => Event::find($id),
+      "event" => $event,
     ]);
   }
 
@@ -37,7 +46,7 @@ class EventController extends Controller
     $event = new Event();
 
     $event->title = $request->title;
-    $event->slug = Str::slug($request->title);
+    $event->slug = Str::slug($request->title, "-");
     $event->priority = $request->priority;
     $event->excerpt = Str::limit($request->body, 100);
     $event->body = $request->body;

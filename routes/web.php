@@ -53,7 +53,8 @@ Route::get("/acara", [EventController::class, 'index']);
 
 // single acara
 Route::get("/acara/add", [EventController::class, 'add']);
-Route::get("/acara/{id}", [EventController::class, 'show']);
+// Route::get("/acara/{id}", [EventController::class, 'show']);
+Route::get("/acara/{event:slug}", [EventController::class, 'show']);
 Route::post("/acara", [EventController::class, 'store']);
 // Route::get("/acara/{id}/edit", [EventController::class, 'edit']);
 // Route::put("/acara/{id}", [EventController::class, 'update']);

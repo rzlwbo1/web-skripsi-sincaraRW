@@ -7,7 +7,7 @@
 
 
   @foreach ($events as $event)
-      <a href="/acara/{{ $event->id }}">
+      <a href="/acara/{{ $event->slug }}">
         <h2>{{ $event->title }}</h2>
       </a>
       <h4>{{ $event->author }}</h4>
