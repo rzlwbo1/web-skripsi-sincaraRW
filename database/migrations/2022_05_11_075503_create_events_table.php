@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string("title");
             $table->string('slug');
+            $table->smallInteger("priority");
             $table->text('excerpt');
             $table->text('body');
             $table->date('publish_at')->nullable();
