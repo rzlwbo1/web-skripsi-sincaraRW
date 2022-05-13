@@ -17,6 +17,7 @@
 
     <form action="/acara" method="post">
       @csrf
+     
       <div class="mb-3">
         <label for="title" class="form-label">Judul</label>
         <input type="text" class="form-control" id="title" name="title">
@@ -26,17 +27,22 @@
         <textarea name="body" id="deskripsi" cols="30" rows="10" class="form-control"></textarea>
       </div>
   
-      <div class="mb-3">
+      <div class="mb-3 w-25">
         <label for="prioritas" class="form-label">Prioritas</label>
-        <input type="text" class="form-control" id="prioritas" name="priority">
+        <input type="number" class="form-control" id="prioritas" name="priority">
+      </div>
+
+      <div class="mb-3 w-25">
+        <label for="categori" class="form-label">Kategori</label>
+        <input type="number" class="form-control" id="categori" name="category_id">
       </div>
   
-      <div class="mb-3">
+      <div class="mb-3 w-25">
         <label for="tanggal" class="form-label">Tanggal</label>
         <input type="date" class="form-control" id="tanggal" name="publish_at">
       </div>
   
-      <div class="mb-3">
+      <div class="mb-3 w-25">
         <label for="Waktu" class="form-label">Waktu</label>
         <input type="time" class="form-control" id="Waktu" name="time_at">
       </div>
