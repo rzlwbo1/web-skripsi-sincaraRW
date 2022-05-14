@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,8 @@ class EventController extends Controller
   //   ]);
   // }
 
+
+  // Route model binding
   public function show(Event $event)
   {
     return view('event', [
@@ -67,6 +70,37 @@ class EventController extends Controller
     // $event->time_at = $request->time_at;
 
     // $event->save();
+
+  }
+
+  public function edit($id) {
+
+    $event = Event::find($id);
+    $category = Category::all();
+    return view("edit", [
+      "event" => $event,
+      "category" => $category,
+    ]);
+
+  }
+
+
+  public function update(Request $request, $id) {
+
+    $event = Event::find($id);
+
+    $event->title = $request->title;
+    $event->category_id = $request->category_id;
+    $event->slug = Str::slug($request->title, '-');
+    $event->priority = $request->priority;
+    $event->excerpt = Str::limit($request->body, 100);
+    $event->body = $request->body;
+    $event->publish_at = $request->publish_at;
+    $event->time_at = $request->time_at;
+
+    $event->save();
+
+    return redirect('/acara');
 
   }
 

@@ -13,45 +13,46 @@
 
   
   <div class="container py-3">
-    <h2>Membuat acara baru</h2>
+    <h2>Edit acara baru</h2>
 
-    <form action="/acara" method="post">
+    <form action="/acara/{{ $event->id }}" method="post">
       @csrf
-     
+      @method('PUT')
       <div class="mb-3">
         <label for="title" class="form-label">Judul</label>
-        <input type="text" class="form-control" id="title" name="title">
+        <input type="text" class="form-control" id="title" name="title" value="{{ $event->title }}">
       </div>
       <div class="mb-3">
         <label for="deskripsi" class="form-label">Deskripsi</label>
-        <textarea name="body" id="deskripsi" cols="30" rows="10" class="form-control"></textarea>
+        <textarea name="body" id="deskripsi" cols="30" rows="10" class="form-control">{{ $event->body }}</textarea>
       </div>
   
       <div class="mb-3 w-25">
         <label for="prioritas" class="form-label">Prioritas</label>
-        <input type="number" class="form-control" id="prioritas" name="priority">
+        <input type="number" class="form-control" id="prioritas" name="priority" value="{{ $event->priority }}">
       </div>
 
       <div class="mb-3 w-25">
         <label for="category">Kategori</label>
         <select name="category_id" id="category" class="form-select">
-          <option value="2">Berita</option>
-          <option value="3">Acara</option>
-          <option value="4">Informasi</option>
+          <option value="0" >Pilih Ketegori</option>
+          @foreach ($category as $cat)
+          <option value="{{ $cat->id }}" {{ $cat->id == $event->category_id ? 'selected' : '' }} >{{ $cat->name }}</option>
+          @endforeach
         </select>
       </div>
   
       <div class="mb-3 w-25">
         <label for="tanggal" class="form-label">Tanggal</label>
-        <input type="date" class="form-control" id="tanggal" name="publish_at">
+        <input type="date" class="form-control" id="tanggal" name="publish_at" value="{{ $event->publish_at }}">
       </div>
   
       <div class="mb-3 w-25">
         <label for="Waktu" class="form-label">Waktu</label>
-        <input type="time" class="form-control" id="Waktu" name="time_at">
+        <input type="time" class="form-control" id="Waktu" name="time_at" value="{{ $event->time_at }}">
       </div>
   
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Edit</button>
     </form>
   </div>
   
