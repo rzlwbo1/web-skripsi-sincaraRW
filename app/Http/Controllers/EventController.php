@@ -104,4 +104,12 @@ class EventController extends Controller
 
   }
 
+
+  public function destroy($id) {
+
+    Event::destroy($id);
+    return redirect('/acara');
+
+  }
+
 }
