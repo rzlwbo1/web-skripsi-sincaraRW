@@ -3,7 +3,7 @@
 
 @section('content')
   <h2>{{ $event->title }}</h2>
-  <h4>{{ $event->author }}</h4>
+  <p>By. Rizal Wibowo dalam kategori <a href="/categories/{{ $event->category->slug }}">{{ $event->category->name }}</a></p>
   {{-- <p>{{ $event->body }}</p> --}}
 
   {!! $event->body !!}

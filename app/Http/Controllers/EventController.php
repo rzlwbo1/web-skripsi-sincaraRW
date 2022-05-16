@@ -13,9 +13,10 @@ class EventController extends Controller
 
   public function tes() {
 
-    $event = Event::find(1);
+    // $event = Event::find(1);
+    $cat = Category::find(4);
 
-    return $event->category->name;
+    return $cat->events;
 
   }
 
