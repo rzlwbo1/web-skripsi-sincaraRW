@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
 
+
+  public function tes() {
+
+    $event = Event::find(1);
+
+    return $event->category->name;
+
+  }
+
+
   public function index()
   {
     return view('events', [

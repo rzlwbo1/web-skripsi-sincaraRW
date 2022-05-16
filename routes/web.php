@@ -23,7 +23,7 @@ use App\Http\Controllers\EventController;
 // shortcut kalo emang mau hanya return view aja
 // https://laravel.com/docs/8.x/routing#view-routes
 
-Route::view("/tes", 'welcome');
+// Route::view("/tes", 'welcome');
 
 Route::get('/user/{id}', function($id) {
     return 'User '.$id;
@@ -59,3 +59,7 @@ Route::post("/acara", [EventController::class, 'store']);
 Route::get("/acara/{id}/edit", [EventController::class, 'edit']);
 Route::put("/acara/{id}", [EventController::class, 'update']);
 Route::delete("/acara/{id}", [EventController::class, 'destroy']);
+
+
+// tes data
+Route::get("/p", [EventController::class, 'tes']);
