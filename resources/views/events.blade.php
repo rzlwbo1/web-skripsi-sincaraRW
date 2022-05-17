@@ -8,10 +8,11 @@
 
   @foreach ($events as $event)
       <div class="my-4">
-        <a href="/acara/{{ $event->slug }}">
+        <a href="/acara/{{ $event->slug }}" class="text-decoration-none">
           <h2>{{ $event->title }}</h2>
         </a>
-        <h4>{{ $event->author }}</h4>
+        <p>By. Rizal Wibowo dalam kategori <a href="/categories/{{ $event->category->slug }}" class="text-decoration-none">{{ $event->category->name }}</a></p>
+
         <p>{{ $event->excerpt }}</p>
   
         <a href="/acara/{{ $event->id }}/edit" class="btn btn-warning btn-sm"><i class="bi bi-pencil"> Edit</i></a>
@@ -23,6 +24,7 @@
           <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
         </form>
 
+        <hr>
       </div>
   @endforeach
 
