@@ -37,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    // relasi ke tabel events, satu user bisa bikin banyak event
+    public function posts() {
+        return $this->hasMany(Event::class);
+    }
 }
