@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use App\Models\Category;
 
 // use App\Models\Acara;
@@ -66,5 +67,6 @@ Route::delete("/acara/{id}", [EventController::class, 'destroy']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
+Route::get('/users/{user}', [UserController::class, 'show']);
 // tes data
 Route::get("/p", [EventController::class, 'tes']);

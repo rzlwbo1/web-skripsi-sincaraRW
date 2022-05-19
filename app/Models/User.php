@@ -40,7 +40,7 @@ class User extends Authenticatable
 
 
     // relasi ke tabel events, satu user bisa bikin banyak event
-    public function posts() {
+    public function events() {
         return $this->hasMany(Event::class);
     }
 }
