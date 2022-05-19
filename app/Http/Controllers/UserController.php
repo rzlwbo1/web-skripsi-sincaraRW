@@ -9,10 +9,11 @@ class UserController extends Controller
 {
     public function show(User $user) {
 
-        return view('user', [
+        return view('sub', [
             "events" => $user->events,
             'user' => $user->name,
-            'title' => $user->name
+            'titleSub' => $user->name,
+            'title' => 'Informasi by User',
         ]);
 
     }

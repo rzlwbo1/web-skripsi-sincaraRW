@@ -25,10 +25,12 @@ class CategoryController extends Controller
   public function show(Category $category)
   {
 
-    return view('category', [
+    // karna isinya mirip" dengan page events maka knpa ga pake view itu aja
+    return view('sub', [
       "title" => $category->name,
       "events" => $category->events,
-      "category" => $category->name,
+      "titleSub" => $category->name,
+      'title' => 'Informasi acara by kategori',
     ]);
 
   }

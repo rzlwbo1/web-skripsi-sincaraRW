@@ -3,8 +3,10 @@
 
 @section('content')
 
+
   <a href="/acara/add" class="btn btn-primary mb-3" style="font-size: 1.2rem"><i class="bi bi-plus-circle-fill" style="font-size: 1.2rem"></i> buat Informasi  baru</a>
 
+  <h1>{{ $titleSub }}</h1>
 
   @foreach ($events as $event)
       <div class="my-4">
