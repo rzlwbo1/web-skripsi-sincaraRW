@@ -26,6 +26,11 @@
         <label for="deskripsi" class="form-label">Deskripsi</label>
         <textarea name="body" id="deskripsi" cols="30" rows="10" class="form-control"></textarea>
       </div>
+
+      <div class="mb-3 w-25">
+        <label for="user" class="form-label">User id</label>
+        <input type="number" class="form-control" name="user_id" id="user">
+      </div>
   
       <div class="mb-3 w-25">
         <label for="prioritas" class="form-label">Prioritas</label>
@@ -35,9 +40,10 @@
       <div class="mb-3 w-25">
         <label for="category">Kategori</label>
         <select name="category_id" id="category" class="form-select">
-          <option value="2">Berita</option>
-          <option value="3">Acara</option>
-          <option value="4">Informasi</option>
+          <option value="0">== Pilih kategori ==</option>
+          @foreach ($category as $cat)
+          <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+          @endforeach
         </select>
       </div>
   

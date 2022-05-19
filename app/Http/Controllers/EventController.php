@@ -51,7 +51,8 @@ class EventController extends Controller
 
   public function add() {
     
-    return view('create');
+    $category = Category::all();
+    return view('create', ['category' => $category]);
 
   }
 
@@ -59,6 +60,7 @@ class EventController extends Controller
 
     $event = Event::create([
       "title" => $request->title,
+      "user_id" => $request->user_id,
       "category_id" => $request->category_id,
       "slug" =>  Str::slug($request->title, "-"),
       "priority" =>$request->priority,

@@ -18,19 +18,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
+        User::factory(3)->create();
 
-        User::create([
-            "name" => "Rizal Wibowo",
-            "email" => "zal@mail.com",
-            "password" => Hash::make('password')
-        ]);
+        // User::create([
+        //     "name" => "Rizal Wibowo",
+        //     "email" => "zal@mail.com",
+        //     "password" => Hash::make('password')
+        // ]);
 
-        User::create([
-            "name" => "Mang bowo",
-            "email" => "bow@mail.com",
-            "password" => Hash::make('password')
-        ]);
+        // User::create([
+        //     "name" => "Mang bowo",
+        //     "email" => "bow@mail.com",
+        //     "password" => Hash::make('password')
+        // ]);
 
         Category::create([
             "name" => "Acara",
