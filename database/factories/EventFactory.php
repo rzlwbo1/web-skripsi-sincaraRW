@@ -27,7 +27,7 @@ class EventFactory extends Factory
             'user_id' => mt_rand(1, 3),
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
-            'priority' => mt_rand(0,5),
+            'priority' => mt_rand(1, 5),
             'excerpt' => $this->faker->paragraph(),
             'body' => $this->faker->paragraph(3),
             'publish_at' =>$this->faker->date(),

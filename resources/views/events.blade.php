@@ -11,7 +11,8 @@
         <a href="/acara/{{ $event->slug }}" class="text-decoration-none">
           <h2>{{ $event->title }}</h2>
         </a>
-        <p>By. <a href="/users/{{ $event->user->id }}">{{ $event->user->name }}</a> dalam kategori <a href="/categories/{{ $event->category->slug }}" class="text-decoration-none">{{ $event->category->name }}</a></p>
+
+        <p>By. <a href="/users/{{ $event->user->username }}">{{ $event->user->name }}</a> dalam kategori <a href="/categories/{{ $event->category->slug }}" class="text-decoration-none">{{ $event->category->name }}</a></p>
 
         <p>{{ $event->excerpt }}</p>
   

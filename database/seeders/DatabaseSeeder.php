@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             "slug" => 'informasi'
         ]);
 
-        Event::factory()->count(10)->create();
+        Event::factory()->count(15)->create();
 
         // Event::create([
         //     "category_id" => 1,

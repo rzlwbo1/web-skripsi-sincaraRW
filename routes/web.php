@@ -67,6 +67,6 @@ Route::delete("/acara/{id}", [EventController::class, 'destroy']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
-Route::get('/users/{user}', [UserController::class, 'show']);
+Route::get('/users/{user:username}', [UserController::class, 'show']);
 // tes data
 Route::get("/p", [EventController::class, 'tes']);
