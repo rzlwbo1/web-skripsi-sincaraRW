@@ -10,7 +10,7 @@ class UserController extends Controller
     public function show(User $user) {
 
         return view('sub', [
-            "events" => $user->events,
+            "events" => $user->events->load(['user', 'category']),
             'user' => $user->name,
             'titleSub' => $user->name,
             'title' => 'Informasi by User',
