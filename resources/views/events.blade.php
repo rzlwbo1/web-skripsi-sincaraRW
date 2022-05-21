@@ -8,27 +8,50 @@
 
   <h1>{{ $titleSub }}</h1>
 
-  @foreach ($events as $event)
-      <div class="my-4">
-        <a href="/acara/{{ $event->slug }}" class="text-decoration-none">
-          <h2>{{ $event->title }}</h2>
-        </a>
-
-        <p>By. <a href="/users/{{ $event->user->username }}">{{ $event->user->name }}</a> dalam kategori <a href="/categories/{{ $event->category->slug }}" class="text-decoration-none">{{ $event->category->name }}</a></p>
-
-        <p>{{ $event->excerpt }}</p>
-  
-        <a href="/acara/{{ $event->id }}/edit" class="btn btn-warning btn-sm"><i class="bi bi-pencil"> Edit</i></a>
-
-        <form action="/acara/{{ $event->id }}" method="post" class="mt-2">
-          @csrf
-          @method('DELETE')
-
-          <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
-        </form>
-
-        <hr>
+  <div class="search-field">
+    <div class="container">
+      <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-6">
+          <form action="/search">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Cari informasi, Acara, Kegiatan" name="search_query">
+              <button class="btn btn-outline-secondary" type="submit">Cari</button>
+            </div>
+          </form>
+        </div>
       </div>
-  @endforeach
+    </div>
+  </div>
+
+  @if (count($events) > 0)
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
+    @foreach ($events as $event)
+
+      <div class="col">
+        <div class="card">
+          <p class="card-header"><a href="/categories/{{ $event->category->slug }}">{{ $event->category->name }}</a></p>
+    
+          <img src="https://picsum.photos/seed/{{ $event->category->slug }}/200" class="card-img-top" alt="images" class="img-thumbnail" style="border-radius: 0;" height="250">
+    
+          <div class="card-body">
+            <h3 class="card-title">
+              <a href="/acara/{{ $event->slug }}" class="text-reset text-black text-decoration-none">{{ $event->title }}</a>
+            </h3>
+
+            <h6 class="card-subtitle text-muted my-3">
+              Pembuat : <a href="/users/{{ $event->user->username }}">{{ $event->user->name }}</a>
+            </h6>
+            <p class="card-text">{{ $event->excerpt }}</p>
+
+            <a href="/acara/{{ $event->slug }}" class="btn btn-primary w-100">Baca selengkapnya</a>
+          </div>
+    
+        </div>
+      </div>
+    @endforeach
+    </div>
+  @else
+    <p>Tidak ada acara & informasi</p>
+  @endif
 
 @endsection

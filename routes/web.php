@@ -38,13 +38,15 @@ Route::get('/', function () {
     
   // ini pake depedency injection View
   return View::make('home', [
-      "title" => "beranda"
+      "title" => "beranda",
+      "active" => 'beranda',
   ]);
 });
 
 Route::get("/about", function() {
   return view('about', [
       "title" => "about",
+      "active" => "about",
       "nama" => "Rizal Wibowo",
       "email" => "zal@mail.com"
   ]);

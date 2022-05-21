@@ -29,7 +29,8 @@ class EventFactory extends Factory
             'slug' => $this->faker->slug(),
             'priority' => mt_rand(1, 5),
             'excerpt' => $this->faker->paragraph(),
-            'body' => $this->faker->paragraph(3),
+            // di map biar bisa di sisipin tag p
+            'body' => collect($this->faker->paragraphs(mt_rand(3, 8)))->map(fn($p, $key) => "<p>$p</p>")->implode(''),
             'publish_at' =>$this->faker->date(),
             'time_at' => $this->faker->time()
         ];

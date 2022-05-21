@@ -14,6 +14,7 @@ class CategoryController extends Controller
     return view('categories', [
 
       "title" => "Kategori",
+      "active" => "categories",
       "categories" => Category::all(),
 
     ]);
@@ -29,6 +30,7 @@ class CategoryController extends Controller
     return view('sub', [
       "title" => $category->name,
       "events" => $category->events,
+      "active" => "categories",
       "titleSub" => $category->name,
       'title' => 'Informasi acara by kategori',
     ]);

@@ -24,8 +24,9 @@ class EventController extends Controller
   public function index()
   {
     return view('events', [
-      "title" => 'acara',
+      "title" => 'Semua informasi & acara',
       "titleSub" => 'Semua informasi & acara',
+      "active" => 'acara',
       // pake eager loader
       "events" => Event::with(['user', 'category'])->get(),
     ]);
