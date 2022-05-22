@@ -21,15 +21,33 @@ class EventController extends Controller
   }
 
 
-  public function index()
+  public function index(Request $request)
   {
-    return view('events', [
-      "title" => 'Semua informasi & acara',
-      "titleSub" => 'Semua informasi & acara',
-      "active" => 'acara',
-      // pake eager loader
-      "events" => Event::with(['user', 'category'])->get(),
-    ]);
+
+    if($request->query('search_query')) {
+
+      $searched = Event::with(['user', 'category'])
+                  ->where('title', 'like', '%'. $request->query('search_query') .'%')
+                  ->orWhere('body', 'like', '%'. $request->query('search_query') .'%')
+                  ->get();
+
+      return view('events', [
+        "title" => 'Semua informasi & acara',
+        "titleSub" => 'Semua informasi & acara',
+        "active" => 'acara',
+        // pake eager loader
+        "events" => $searched,
+      ]);
+
+    } else {
+      return view('events', [
+        "title" => 'Semua informasi & acara',
+        "titleSub" => 'Semua informasi & acara',
+        "active" => 'acara',
+        // pake eager loader
+        "events" => Event::with(['user', 'category'])->get(),
+      ]);
+    }
   }
 
   // public function show($id)
@@ -49,6 +67,7 @@ class EventController extends Controller
       "title" => "Post acara",
       // "event" => Event::where('slug', $slug)->first(),
       "event" => $event,
+      "active" => 'acara'
     ]);
   }
 

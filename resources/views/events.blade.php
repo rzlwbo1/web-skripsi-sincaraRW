@@ -12,9 +12,9 @@
     <div class="container">
       <div class="row justify-content-center mt-3">
         <div class="col-12 col-md-6">
-          <form action="/search">
+          <form action="/acara">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Cari informasi, Acara, Kegiatan" name="search_query">
+              <input type="search" class="form-control" placeholder="Cari informasi, Acara, Kegiatan" name="search_query" value="{{ request('search_query') }}">
               <button class="btn btn-outline-secondary" type="submit">Cari</button>
             </div>
           </form>
