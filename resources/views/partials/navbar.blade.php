@@ -11,13 +11,13 @@
         </li>
         <li class="nav-item">
 
-          <a class="nav-link {{ $active === "acara" ? 'active' : '' }}" href="/acara">Acara RW</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ $active === "about" ? 'active' : '' }}" href="/about">About</a>
+          <a class="nav-link {{ $active === "acara" ? 'active' : '' }}" href="/acara">Informasi & Acara</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ $active === "categories" ? 'active' : '' }}" href="/categories">Kategori</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ $active === "about" ? 'active' : '' }}" href="/about">About</a>
         </li>
       </ul>
     </div>
