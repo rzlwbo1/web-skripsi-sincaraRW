@@ -11,6 +11,7 @@ class UserController extends Controller
 
         return view('sub', [
             "events" => $user->events->load(['user', 'category']),
+            "active" => "acara",
             'user' => $user->name,
             'titleSub' => $user->name,
             'title' => 'Informasi by User',

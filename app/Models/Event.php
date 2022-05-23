@@ -16,7 +16,7 @@ class Event extends Model
 
     // ?? itu pengganti isset() yaitu colleaseing null
     // ini logical group, jadi singkatnya kita ada where di dlm where dgn orWhere
-    
+
     $query->when($filters['search_query'] ?? false, function($query, $search_query) {
         return $query->where(function($query) use ($search_query) {
               $query->where('title', 'like', '%' . $search_query . '%')
@@ -30,6 +30,16 @@ class Event extends Model
       // use itu ambil variabel dari parent scope
       return $query->whereHas('category', function(Builder $query) use ($category) {
         $query->where('slug', $category);
+      });
+
+    });
+
+
+    $query->when($filters['users'] ?? false, function($query, $user) {
+
+      // use itu ambil variabel dari parent scope
+      return $query->whereHas('user', function(Builder $query) use ($user) {
+        $query->where('username', $user);
       });
 
     });

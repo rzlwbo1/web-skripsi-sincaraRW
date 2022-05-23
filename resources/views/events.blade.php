@@ -13,9 +13,15 @@
       <div class="row justify-content-center mt-3">
         <div class="col-12 col-md-6">
           <form action="/acara">
+            
             @if (request('category'))
               <input type="hidden" name="category" value="{{ request('category') }}">
             @endif
+
+            @if (request('users'))
+              <input type="hidden" name="users" value="{{ request('users') }}">
+            @endif
+
             <div class="input-group mb-3">
               <input type="search" class="form-control" placeholder="Cari informasi, Acara, Kegiatan" name="search_query" value="{{ request('search_query') }}">
               <button class="btn btn-outline-secondary" type="submit">Cari</button>
@@ -42,7 +48,7 @@
             </h3>
 
             <h6 class="card-subtitle text-muted my-3">
-              Pembuat : <a href="/users/{{ $event->user->username }}">{{ $event->user->name }}</a>
+              Pembuat : <a href="/acara?users={{ $event->user->username }}">{{ $event->user->name }}</a>
             </h6>
             <p class="card-text">{{ $event->excerpt }}</p>
 

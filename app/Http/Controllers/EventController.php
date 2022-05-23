@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -24,12 +25,24 @@ class EventController extends Controller
   public function index()
   {
 
+    $titleOnPage = '';
+
+    if(request('category')) {
+      $cat = Category::firstWhere('slug', request('category'));
+      $titleOnPage = " di " . $cat->name;
+    }
+
+    if(request('users')) {
+      $user = User::firstWhere('username', request('users'));
+      $titleOnPage = " di " . $user->name;
+    }
+
     return view('events', [
       "title" => 'Semua informasi & acara',
-      "titleSub" => 'Semua informasi & acara',
+      "titleSub" => 'Semua informasi & acara' . $titleOnPage,
       "active" => 'acara',
       // pake eager loader
-      "events" => Event::with(['user', 'category'])->filter(request(['search_query', 'category']))->get(),
+      "events" => Event::with(['user', 'category'])->filter(request(['search_query', 'category', 'users']))->get(),
     ]);
 
   }

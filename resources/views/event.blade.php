@@ -10,7 +10,7 @@
 
         <img src="https://picsum.photos/seed/{{ $event->category->slug }}/300" alt="images">
 
-        <p class="text-muted mt-4">Pembuat : <a href="/users/{{ $event->user->username }}" class="text-reset">{{ $event->user->name }}</a> dalam kategori <a href="/acara?category{{ $event->category->slug }}" class="text-reset">{{ $event->category->name }}</a></p>
+        <p class="text-muted mt-4">Pembuat : <a href="/acara?users={{ $event->user->username }}" class="text-reset">{{ $event->user->name }}</a> dalam kategori <a href="/acara?category{{ $event->category->slug }}" class="text-reset">{{ $event->category->name }}</a></p>
         {{-- <p>{{ $event->body }}</p> --}}
 
         <p class="fs-5 mb-1 mt-5">{!! $event->body !!}</p>
