@@ -13,6 +13,9 @@
       <div class="row justify-content-center mt-3">
         <div class="col-12 col-md-6">
           <form action="/acara">
+            @if (request('category'))
+              <input type="hidden" name="category" value="{{ request('category') }}">
+            @endif
             <div class="input-group mb-3">
               <input type="search" class="form-control" placeholder="Cari informasi, Acara, Kegiatan" name="search_query" value="{{ request('search_query') }}">
               <button class="btn btn-outline-secondary" type="submit">Cari</button>
@@ -29,7 +32,7 @@
 
       <div class="col">
         <div class="card">
-          <p class="card-header"><a href="/categories/{{ $event->category->slug }}">{{ $event->category->name }}</a></p>
+          <p class="card-header"><a href="/acara?category={{ $event->category->slug }}">{{ $event->category->name }}</a></p>
     
           <img src="https://picsum.photos/seed/{{ $event->category->slug }}/200" class="card-img-top" alt="images" class="img-thumbnail" style="border-radius: 0;" height="250">
     
