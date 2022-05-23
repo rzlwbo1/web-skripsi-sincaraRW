@@ -63,4 +63,12 @@
     <p>Tidak ada acara & informasi</p>
   @endif
 
+  <div class="row">
+    <div class="col-md-3 offset-md-10">
+      <div class="pagination">
+        {{ $events->links() }}
+      </div>
+    </div>
+  </div>
+
 @endsection
