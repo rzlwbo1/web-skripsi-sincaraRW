@@ -13,7 +13,12 @@
         <p class="text-muted mt-4">Pembuat : <a href="/acara?users={{ $event->user->username }}" class="text-reset">{{ $event->user->name }}</a> dalam kategori <a href="/acara?category{{ $event->category->slug }}" class="text-reset">{{ $event->category->name }}</a></p>
         {{-- <p>{{ $event->body }}</p> --}}
 
-        <p class="fs-5 mb-1 mt-5">{!! $event->body !!}</p>
+        <hr>
+        <div class="agenda">
+          <h5>Hari & Tanggal : <span class="date">{{ $event->publish_at }}</span></h5>
+          <h5>Waktu : {{ $event->time_at }}</h5>
+        </div>
+        <p class="fs-5 mb-1 mt-3">{!! $event->body !!}</p>
 
         <br>
         <a href="/acara" role="button" class="btn btn-outline-dark">Kembali</a>

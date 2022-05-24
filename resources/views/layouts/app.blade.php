@@ -25,6 +25,18 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="/js/bootstrap.bundle.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', (evt) => {
+
+        if(document.querySelector('.date')) {
+          let dateElem = document.querySelector('.date');
+          let date = new Date(dateElem.textContent).toDateString();
+          document.querySelector('.date').innerHTML = date;
+          // console.log(1);
+        }
+
+      });
+    </script>
 
   </body>
 </html>

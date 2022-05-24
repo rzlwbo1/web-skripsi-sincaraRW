@@ -50,6 +50,8 @@
             <h6 class="card-subtitle text-muted my-3">
               Pembuat : <a href="/acara?users={{ $event->user->username }}">{{ $event->user->name }}</a>
             </h6>
+            
+            <p class="text-muted">Pada pukul : {{ $event->time_at }}</p>
             <p class="card-text">{{ $event->excerpt }}</p>
 
             <a href="/acara/{{ $event->slug }}" class="btn btn-primary w-100">Baca selengkapnya</a>
