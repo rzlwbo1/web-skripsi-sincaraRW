@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -28,9 +29,18 @@ class RegisterController extends Controller
       'password' => 'required|min:5|max:255'
     ])->validate();
 
+    // $validated['password'] = bcrypt($validated['passowrd']);
+    $validated['password'] = Hash::make($validated['password']);
 
     // store
     User::create($validated);
+
+    // kasih flash message
+    $request->session()->flash('status', 'Registrasi berhasil!!');
+    return redirect('login');
+
+    // or bisa seperti di bawah ini
+    // return redirect('login')->with('status', 'Registrasi berhasil!!');
   
     // dd($validated);
 

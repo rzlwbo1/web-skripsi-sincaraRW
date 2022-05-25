@@ -4,6 +4,13 @@
   <div class="d-grid form">
     <main class="form-signin text-center border rounded">
       <form>
+        {{-- session() itu helper --}}
+        @if (session('status'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Horee!</strong> {{ session('status') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
         <h1 class="h3 mb-3">Masuk Akun</h1>
   
         <div class="form-floating">
