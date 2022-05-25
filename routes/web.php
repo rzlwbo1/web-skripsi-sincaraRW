@@ -1,12 +1,14 @@
 <?php
 
 
+use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
-use App\Models\Category;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
 
 // use App\Models\Acara;
 
@@ -65,10 +67,16 @@ Route::get("/acara/{id}/edit", [EventController::class, 'edit']);
 Route::put("/acara/{id}", [EventController::class, 'update']);
 Route::delete("/acara/{id}", [EventController::class, 'destroy']);
 
-
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::get('/users/{user:username}', [UserController::class, 'show']);
+
 // tes data
 Route::get("/p", [EventController::class, 'tes']);
+
+
+// LOGIN & REGISTER
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);

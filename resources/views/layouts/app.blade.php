@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
+    {{-- main style --}}
+    <link rel="stylesheet" href="/css/style.css">
+
     {{-- Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 
@@ -18,9 +21,9 @@
     {{-- ini directieve include beda dgn yield dan section --}}
     @include('../partials.navbar')
 
-    <div class="container mt-4">
+    <main class="container mt-4">
       @yield('content')
-    </div>
+    </main>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
