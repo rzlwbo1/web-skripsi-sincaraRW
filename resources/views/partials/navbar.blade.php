@@ -23,9 +23,26 @@
 
       {{-- login and regis link --}}
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link {{ $active === "login" ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Masuk</a>
-        </li>
+
+        {{-- kasih dropdown kalo udah login --}}
+        @auth
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Halo, {{ auth()->user()->name }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/dashboard">Dashboard Saya</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Keluar</a></li>
+            </ul>
+          </li>
+        @endauth
+
+        @guest
+          <li class="nav-item">
+            <a class="nav-link {{ $active === "login" ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Masuk</a>
+          </li>
+        @endguest
       </ul>
     </div>
   </div>
