@@ -23,7 +23,8 @@ class RegisterController extends Controller
 
     $validated = Validator::make($request->all(), [
       'name' => 'required|max:255',
-      // unique itu berarti gaboleh sama di tabel tertentu, disini tabel user
+      // unique itu berarti gaboleh sama di tabel tertentu, disini tabel user,
+      // jadi username unique di tabel users
       'username' => ['required', 'min:3', 'max:255', 'unique:users'],
       'email' => 'required|email:rfc,dns|unique:users',
       'password' => 'required|min:5|max:255'
@@ -32,7 +33,7 @@ class RegisterController extends Controller
     // $validated['password'] = bcrypt($validated['passowrd']);
     $validated['password'] = Hash::make($validated['password']);
 
-    // store
+    // store, karna udah array jadi langsung aja
     User::create($validated);
 
     // kasih flash message

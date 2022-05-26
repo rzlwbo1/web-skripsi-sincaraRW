@@ -34,7 +34,6 @@ class Event extends Model
 
     });
 
-
     $query->when($filters['users'] ?? false, function($query, $user) {
 
       // use itu ambil variabel dari parent scope
@@ -43,6 +42,16 @@ class Event extends Model
       });
 
     });
+
+
+
+    // ini sama kek when di atas cuma pake if aja
+
+    // if($filters['category'] ?? false) {
+    //   return $query->whereHas('category', function(Builder $query) use ($filters){
+    //     $query->where('slug', $filters['category']);
+    //   });
+    // }
 
 
     // dibawah sama kek di atas bedanya di atas lebih complex
