@@ -33,7 +33,12 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="/dashboard">Dashboard Saya</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Keluar</a></li>
+              <li>
+                <form action="/logout" method="post">
+                  @csrf
+                  <button class="dropdown-item">Keluar</button>
+                </form>
+              </li>
             </ul>
           </li>
         @endauth

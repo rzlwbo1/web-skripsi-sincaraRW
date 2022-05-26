@@ -22,7 +22,7 @@ class RegisterController extends Controller
   {
 
     $validated = Validator::make($request->all(), [
-      'name' => 'required|max:255',
+      'name' => 'required|max:255|alpha',
       // unique itu berarti gaboleh sama di tabel tertentu, disini tabel user,
       // jadi username unique di tabel users
       'username' => ['required', 'min:3', 'max:255', 'unique:users'],
