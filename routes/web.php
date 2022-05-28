@@ -85,4 +85,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function() {
+
+  // awalnya pake controller tpi di ganti closures aja
+  return view('dashboard.index');
+
+})->middleware('auth');
