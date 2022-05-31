@@ -6,6 +6,8 @@
   <div class="container-lg">
     <h2>Kumpulan Informasi</h2>
 
+    <a href="/dashboard/events/create" class="btn btn-primary">Buat Acara baru</a>
+
     <div class="table-responsive table-informations my-3 bg-white">
       <table class="table table-bordered table-hover">
         <thead>

@@ -16,8 +16,23 @@
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="/admin/css/examples.css" rel="stylesheet">
+  
+    {{-- Trix editor --}}
+    <link rel="stylesheet" type="text/css" href="/trix-editor/trix.css">
+    <script type="text/javascript" src="/trix-editor/trix.js"></script>
 
     <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+      trix-editor {
+        background-color: white;
+      }
+
+      trix-toolbar [data-trix-button-group="file-tools"]{
+        display: none;
+      }
+    </style>
+    
   </head>
   <body>
     {{-- Sidebar --}}

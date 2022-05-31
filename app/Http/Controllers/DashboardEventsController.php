@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -34,7 +35,12 @@ class DashboardEventsController extends Controller
      */
     public function create()
     {
-        //
+
+        $category = Category::all();
+        return view('dashboard.events.create', [
+            "state" => "Buat Post",
+            "category" => $category,
+        ]);
     }
 
     /**
@@ -45,7 +51,7 @@ class DashboardEventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
