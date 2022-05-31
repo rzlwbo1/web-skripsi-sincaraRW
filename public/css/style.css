@@ -30,3 +30,16 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+/* Dashboard Detail */
+
+.aksi-detail {
+  left: 0;
+  top: 30%;
+  z-index: 99;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
+  align-items: center;
+}

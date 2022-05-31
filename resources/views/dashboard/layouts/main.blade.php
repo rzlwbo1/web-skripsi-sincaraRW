@@ -16,6 +16,8 @@
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="/admin/css/examples.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     {{-- Sidebar --}}

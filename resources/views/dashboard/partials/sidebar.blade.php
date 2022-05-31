@@ -10,10 +10,13 @@
   </div>
 
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-    <li class="nav-item"><a class="nav-link" href="/dashboard">
+    <li class="nav-item">
+      <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
         <svg class="nav-icon">
           <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-        </svg> Dashboard</a></li>
+        </svg> Dashboard
+      </a>
+    </li>
     <li class="nav-title">Kelola Informasi</li>
     <li class="nav-item">
       <a class="nav-link" href="/dashboard/informations">
@@ -24,7 +27,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link {{ $state == 'acara' || $state == 'detail' ? 'active' : '' }}" href="/dashboard/events">
+      <a class="nav-link {{ Request::is('dashboard/events*') ? 'active' : '' }}" href="/dashboard/events">
         <svg class="nav-icon">
           <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
         </svg> Acara

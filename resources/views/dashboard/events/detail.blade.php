@@ -3,7 +3,7 @@
 @section('content-admin')
   <div class="body flex-grow-1 px-3">
     <div class="container-lg">
-      <div class="row">
+      <div class="row mb-4">
         <div class="col-lg-10">
           <div class="card">
             <div class="card-body">
@@ -22,20 +22,20 @@
           </div>
         </div>
 
-        <div class="col-lg">
-          <div class="aksi-detail">
-            <a href="/dashboard/events" class="btn btn-secondary mb-2">
+        <div class="col-lg position-relative">
+          <div class="aksi-detail position-sticky">
+            <a href="/dashboard/events" class="btn btn-secondary text-white mb-2">
               Kembali ke semua acara
             </a>
 
             <form>
               @csrf
-              <button type="submit" class="btn btn-warning mb-2">Edit informasi</button>
+              <button type="submit" class="btn text-body btn-warning mb-2">Edit informasi</button>
             </form>
 
             <form>
               @csrf
-              <button type="submit" class="btn btn-danger">Hapus informasi</button>
+              <button type="submit" class="btn btn-danger text-white">Hapus informasi</button>
             </form>
           </div>
         </div>
