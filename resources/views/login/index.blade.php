@@ -3,7 +3,7 @@
 @section('content')
   <div class="d-grid form">
     <main class="form-signin text-center border rounded">
-      <form action="/login" method="post">
+      <form action="/login" method="post" onsubmit="loadLogin()"">
         @csrf
 
         {{-- session() itu helper --}}
@@ -38,7 +38,11 @@
           <label for="passwordField">Password</label>
         </div>
   
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Masuk</button>
+        <button class="btn btn-primary btn-lg w-100 d-none" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Proses...
+        </button>
+        <button class="w-100 btn btn-primary btn-lg btn-login" type="submit">Masuk</button>
         <p class="mt-3">Register ?<a href="/register">Register</a></p>
       </form>
     </main>

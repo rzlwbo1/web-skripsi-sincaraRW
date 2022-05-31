@@ -44,6 +44,16 @@
     <script src="/admin/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
     <script src="/admin/vendors/simplebar/js/simplebar.min.js"></script>
     <script>
+       window.addEventListener('DOMContentLoaded', (evt) => {
+
+          if(document.querySelector('.date')) {
+            let dateElem = document.querySelector('.date');
+            let date = new Date(dateElem.textContent).toDateString();
+            document.querySelector('.date').innerHTML = date;
+            // console.log(1);
+          }
+
+        });
     </script>
 
   </body>

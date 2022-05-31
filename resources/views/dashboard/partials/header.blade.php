@@ -4,10 +4,13 @@
       <svg class="icon icon-lg">
         <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
       </svg>
-    </button><a class="header-brand d-md-none" href="#">
-      <svg width="118" height="46" alt="CoreUI Logo">
+    </button>
+    <a class="header-brand d-md-none" href="#">
+      <h4>Sincara RW014</h4>
+      {{-- <svg width="118" height="46" alt="CoreUI Logo">
         <use xlink:href="/admin/assets/brand/coreui.svg#full"></use>
-      </svg></a>
+      </svg> --}}
+    </a>
     <ul class="header-nav d-none d-md-flex">
       <li class="nav-item"><a class="nav-link active fw-bold" href="/">Dashboard</a></li>
       <li class="nav-item"><a class="nav-link" href="">Users</a></li>
@@ -53,9 +56,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb my-0 ms-2">
         <li class="breadcrumb-item">
-          <!-- if breadcrumb is single--><span>Home</span>
+          <!-- if breadcrumb is single--><span>Dashboard</span>
         </li>
-        <li class="breadcrumb-item active"><span>Dashboard</span></li>
+        <li class="breadcrumb-item active"><span>{{ Str::of($state)->ucfirst() }}</span></li>
       </ol>
     </nav>
   </div>

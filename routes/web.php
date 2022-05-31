@@ -1,15 +1,14 @@
 <?php
 
 
-use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
 
 // use App\Models\Acara;
 
@@ -88,6 +87,10 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', function() {
 
   // awalnya pake controller tpi di ganti closures aja
-  return view('dashboard.index');
+  return view('dashboard.index', ["state" => "Dashboard"]);
 
 })->middleware('auth');
+
+
+// CRUD DASHBOARD using resources controller
+Route::resource("/dashboard/events", DashboardEventsController::class)->middleware('auth');

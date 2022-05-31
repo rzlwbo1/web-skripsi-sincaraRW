@@ -80,4 +80,11 @@ class Event extends Model
   {
     return $this->belongsTo(User::class, 'user_id');
   }
+
+
+  // memaksa route binding yg tadinya id pake slug
+  public function getRouteKeyName()
+  {
+      return 'slug';
+  }
 }

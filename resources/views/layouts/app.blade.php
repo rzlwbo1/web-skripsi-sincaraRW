@@ -39,6 +39,16 @@
         }
 
       });
+
+      function loadLogin() {
+        let btnLogin = document.querySelector(".btn-login");
+
+        btnLogin.classList.toggle('d-none');
+
+        btnLogin.previousElementSibling.classList.toggle('d-none')
+
+        console.log(btnLogin.previousElementSibling);
+      }
     </script>
 
   </body>

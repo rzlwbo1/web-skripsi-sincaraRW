@@ -10,23 +10,26 @@
   </div>
 
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-    <li class="nav-item"><a class="nav-link active" href="/">
+    <li class="nav-item"><a class="nav-link" href="/dashboard">
         <svg class="nav-icon">
           <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
         </svg> Dashboard</a></li>
     <li class="nav-title">Kelola Informasi</li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="/dashboard/informations">
         <svg class="nav-icon">
           <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-newspaper"></use>
         </svg>
          Informasi
       </a>
     </li>
-    <li class="nav-item"><a class="nav-link" href="#">
+    <li class="nav-item">
+      <a class="nav-link {{ $state == 'acara' || $state == 'detail' ? 'active' : '' }}" href="/dashboard/events">
         <svg class="nav-icon">
           <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
-        </svg> Acara</a></li>
+        </svg> Acara
+      </a>
+    </li>
     <li class="nav-title">Components</li>
     <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
