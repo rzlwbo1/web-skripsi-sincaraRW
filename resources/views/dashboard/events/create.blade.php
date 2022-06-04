@@ -6,7 +6,7 @@
       <div class="field-post pb-3">
         <h2>Membuat acara baru</h2>
         <hr>
-        <form action="/dashboard/events" method="post">
+        <form action="/dashboard/events" method="post" enctype="multipart/form-data">
           @csrf
           
           <div class="mb-3">
@@ -15,6 +15,11 @@
             @error('title')
               <div class="invalid-feedback">Judul wajib di isi</div>
             @enderror
+          </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Gambar (opsional)</label>
+            <input class="form-control" type="file" id="image" name="image">
           </div>
       
           <div class="mb-3">

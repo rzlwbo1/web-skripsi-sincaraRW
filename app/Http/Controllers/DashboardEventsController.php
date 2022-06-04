@@ -53,6 +53,11 @@ class DashboardEventsController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request);
+
+        // *name dan nama file nya, me return path yg di simpen
+        return $request->file('image')->store('events-images');
         $validatedData = $request->validate([
             'title' => ['required', 'min:5', 'max:255'],
             'body' => ['required', 'min:5',],

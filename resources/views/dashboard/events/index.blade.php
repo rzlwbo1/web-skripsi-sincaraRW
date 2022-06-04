@@ -48,31 +48,49 @@
         </thead>
 
         <tbody>
-          @foreach ($events as $event)
-            <tr>
-              <th scope="row" class="text-center">{{ $loop->iteration }}</th>
-              <td>{{ $event->title }}</td>
-              <td>{{ $event->priority }}</td>
-              <td>{{ $event->category->name }}</td>
-              <td class="d-flex justify-content-evenly">
-                <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-sm btn-light">
-                  <img src="/admin/assets/icons/eye.svg" alt="show icon" width="25">
-                </a>
+          @if (count($events) > 0)
+            @foreach ($events as $event)
+              <tr>
+                <th scope="row" class="text-center">{{ $loop->iteration }}</th>
+                <td>{{ $event->title }}</td>
+                <td>{{ $event->priority }}</td>
+                <td>{{ $event->category->name }}</td>
+                <td class="d-flex justify-content-evenly">
+                  <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-sm btn-light">
+                    <img src="/admin/assets/icons/eye.svg" alt="show icon" width="25">
+                  </a>
 
-                <a href="/dashboard/events/{{ $event->slug }}/edit" class="btn btn-sm btn-info">
-                  <img src="/admin/assets/icons/pencil.svg" alt="show icon" width="25">
-                </a>
+                  <a href="/dashboard/events/{{ $event->slug }}/edit" class="btn btn-sm btn-info">
+                    <img src="/admin/assets/icons/pencil.svg" alt="show icon" width="25">
+                  </a>
 
-                <form action="/dashboard/events/{{ $event->slug }}" method="post" title="hapus">
-                  @method('delete')
-                  @csrf
-                  <button class="btn btn-sm btn-danger" onclick="return confirm('yakin ingin menghapus?')">
-                    <img src="/admin/assets/icons/x-circle.svg" alt="show icon" width="25">
-                  </button>
-                </form>
-              </td>
-            </tr> 
+                  <form action="/dashboard/events/{{ $event->slug }}" method="post" title="hapus">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-sm btn-danger" onclick="return confirm('yakin ingin menghapus?')">
+                      <img src="/admin/assets/icons/x-circle.svg" alt="show icon" width="25">
+                    </button>
+                  </form>
+                </td>
+              </tr> 
             @endforeach
+          @else
+            <tr>
+              <td colspan="5" class="text-center">
+               <div class="container">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="py-3">
+                      <h4>Tidak ada acara</h4>
+                      <a href="/dashboard/events/create" class="btn btn-primary mt-3">Buat Acara baru</a>
+                    </div>
+                  </div>
+                </div>
+               </div>
+              </td>
+            </tr>
+          @endif
+          
         </tbody>
       </table>
     </div>
