@@ -4,14 +4,15 @@
   <div class="body flex-grow-1 px-3">
     <div class="container-lg">
       <div class="field-post pb-3">
-        <h2>Membuat acara baru</h2>
+        <h2>Edit acara</h2>
         <hr>
-        <form action="/dashboard/events" method="post">
+        <form action="/dashboard/events/{{ $event->slug }}" method="post">
+          @method('PUT')
           @csrf
           
           <div class="mb-3">
             <label for="title" class="form-label">Judul</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required autofocus>
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $event->title) }}" required autofocus>
             @error('title')
               <div class="invalid-feedback">Judul wajib di isi</div>
             @enderror
@@ -22,13 +23,13 @@
             @error('body') 
               <p class="text-danger">Deskripsi wajib di is</p>
             @enderror
-            <input id="body" type="hidden" name="body" value="{{ old('body') }}" class=" @error('body') is-invalid @enderror">
+            <input id="body" type="hidden" name="body" value="{{ old('body', $event->body) }}" class=" @error('body') is-invalid @enderror">
             <trix-editor input="body"  required></trix-editor>
           </div>
       
           <div class="mb-3 w-25">
             <label for="prioritas" class="form-label">Prioritas</label>
-            <input type="number" class="form-control  @error('priority') is-invalid @enderror" id="prioritas" name="priority" value="{{ old('priority') }}" required>
+            <input type="number" class="form-control  @error('priority') is-invalid @enderror" id="prioritas" name="priority" value="{{ old('priority', $event->priority) }}" required>
             <small class="text-body">*berupa angka 1-10</small>
             @error('priority')
               <div class="invalid-feedback">Priorotas wajib di isi</div>
@@ -40,7 +41,7 @@
             <select name="category_id" id="category" class="form-select @error('category_id') is-invalid @enderror" required>
               <option value="0">--Pilih kategori--</option>
               @foreach ($category as $cat)
-                @if (old('category_id') == $cat->id)
+                @if (old('category_id', $event->category_id) == $cat->id)
                 <option value="{{ $cat->id }}" selected>{{ $cat->name }}</option>
                 @else
                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -54,7 +55,7 @@
       
           <div class="mb-3 w-25">
             <label for="tanggal" class="form-label">Tanggal</label>
-            <input type="date" class="form-control @error('publish_at') is-invalid @enderror" id="tanggal" name="publish_at" value="{{ old('publish_at') }}" required>
+            <input type="date" class="form-control @error('publish_at') is-invalid @enderror" id="tanggal" name="publish_at" value="{{ old('publish_at', $event->publish_at) }}" required>
             @error('publish_at')
               <div class="invalid-feedback">Tanggal wajib di isi</div>
             @enderror
@@ -62,13 +63,13 @@
       
           <div class="mb-3 w-25">
             <label for="Waktu" class="form-label">Waktu</label>
-            <input type="time" class="form-control @error('time_at') is-invalid @enderror" id="Waktu" name="time_at" value="{{ old('time_at') }}" required>
+            <input type="time" class="form-control @error('time_at') is-invalid @enderror" id="Waktu" name="time_at" value="{{ old('time_at', $event->time_at) }}" required>
             @error('time_at')
               <div class="invalid-feedback">Waktu wajib di isi</div>
             @enderror
           </div>
       
-          <button type="submit" class="btn btn-primary">Tambah Acara</button>
+          <button type="submit" class="btn btn-primary">Edit Acara</button>
         </form>
       </div>
     </div>

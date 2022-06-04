@@ -33,7 +33,8 @@
               <button type="submit" class="btn text-body btn-warning mb-2">Edit informasi</button>
             </form>
 
-            <form>
+            <form action="/dashboard/events/{{ $event->slug }}" method="post" title="hapus">
+              @method('delete')
               @csrf
               <button type="submit" class="btn btn-danger text-white">Hapus informasi</button>
             </form>

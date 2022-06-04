@@ -10,9 +10,9 @@
 
         if($hour >= 5 && $hour <= 9) {
           $greet = "selamat pagi";
-        } else if($hour >= 10 && $hour <= 3) {
+        } else if($hour >= 10 && $hour <= 13) {
           $greet = "selamat siang";
-        } else if($hour >= 4 && $hour <= 18) {
+        } else if($hour >= 14 && $hour <= 18) {
           $greet = "selamat sore";
         } else {
           $greet = "selamat malam";
