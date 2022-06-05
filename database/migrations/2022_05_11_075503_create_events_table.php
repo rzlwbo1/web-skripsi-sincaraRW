@@ -19,8 +19,9 @@ class CreateEventsTable extends Migration
             $table->foreignId('user_id');
             $table->string("title");
             $table->string('slug');
-            $table->smallInteger("priority");
+            $table->string('image')->nullable();
             $table->text('excerpt');
+            $table->smallInteger("priority");
             $table->text('body');
             $table->date('publish_at')->nullable();
             $table->timeTz('time_at')->nullable();

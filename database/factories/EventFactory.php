@@ -24,7 +24,7 @@ class EventFactory extends Factory
     {
         return [
             'category_id' => mt_rand(1, 3),
-            'user_id' => mt_rand(1, 3),
+            'user_id' => mt_rand(1, 4),
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
             'priority' => mt_rand(1, 5),
