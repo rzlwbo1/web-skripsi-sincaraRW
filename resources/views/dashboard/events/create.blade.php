@@ -20,7 +20,9 @@
           <div class="mb-3">
             <label for="image" class="form-label">Gambar (opsional)</label>
             <small class="text-danger">maksimal 2mb</small>
-            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+
+            <img class="img-preview img-fluid my-3 w-25">
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
             @error('image') 
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -85,8 +87,41 @@
 
 
   <script>
+
+    // Trix >> configurasi melarang input file
     document.addEventListener('trix-file-accept', function(evt) {
       evt.preventDefault();
-    })
+    });
+
+
+    // preview image at create
+    function previewImage() {
+
+      const imageInput = document.getElementById("image");
+      const imgPreview = document.querySelector(".img-preview");
+
+      imgPreview.style.display = 'block';
+
+      const Reader = new FileReader();
+      Reader.readAsDataURL(imageInput.files[0])
+
+      Reader.onload = function(oFREvent) {
+        imgPreview.src = oFREvent.target.result;
+      }
+
+      
+      // dari dev.to
+
+      // if(evt.target.files.length > 0){
+      //   let src = URL.createObjectURL(evt.target.files[0]);
+      //   imgPreview.src = src;
+      //   imgPreview.style.display = "block";
+      // }
+
+      // console.dir(imageInput);
+
+      
+    }
+
   </script>
 @endsection
