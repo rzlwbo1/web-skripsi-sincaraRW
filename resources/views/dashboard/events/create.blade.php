@@ -19,7 +19,11 @@
 
           <div class="mb-3">
             <label for="image" class="form-label">Gambar (opsional)</label>
-            <input class="form-control" type="file" id="image" name="image">
+            <small class="text-danger">maksimal 2mb</small>
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+            @error('image') 
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
       
           <div class="mb-3">
@@ -31,7 +35,7 @@
             <trix-editor input="body"  required></trix-editor>
           </div>
       
-          <div class="mb-3 w-25">
+          <div class="mb-3 w-50">
             <label for="prioritas" class="form-label">Prioritas</label>
             <input type="number" class="form-control  @error('priority') is-invalid @enderror" id="prioritas" name="priority" value="{{ old('priority') }}" required>
             <small class="text-body">*berupa angka 1-10</small>
@@ -40,7 +44,7 @@
             @enderror
           </div>
     
-          <div class="mb-3 w-25">
+          <div class="mb-3 w-50">
             <label for="category">Kategori</label>
             <select name="category_id" id="category" class="form-select @error('category_id') is-invalid @enderror" required>
               <option value="0">--Pilih kategori--</option>
@@ -57,7 +61,7 @@
             @enderror
           </div>
       
-          <div class="mb-3 w-25">
+          <div class="mb-3 w-50">
             <label for="tanggal" class="form-label">Tanggal</label>
             <input type="date" class="form-control @error('publish_at') is-invalid @enderror" id="tanggal" name="publish_at" value="{{ old('publish_at') }}" required>
             @error('publish_at')
@@ -65,7 +69,7 @@
             @enderror
           </div>
       
-          <div class="mb-3 w-25">
+          <div class="mb-3 w-50">
             <label for="Waktu" class="form-label">Waktu</label>
             <input type="time" class="form-control @error('time_at') is-invalid @enderror" id="Waktu" name="time_at" value="{{ old('time_at') }}" required>
             @error('time_at')

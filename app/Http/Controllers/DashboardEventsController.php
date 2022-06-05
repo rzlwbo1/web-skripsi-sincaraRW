@@ -55,14 +55,10 @@ class DashboardEventsController extends Controller
     {
 
         // dd($request);
-
-        // *name dan nama file nya, me return path yg di simpen
-        echo asset('storage/4Dg4f5eJBJEz9MI3irJC6bRo1WKnJZqRQQ3j3Li5.jpg');
-        return $request->file('image')->store('events-images');
-
-        
+                
         $validatedData = $request->validate([
             'title' => ['required', 'min:5', 'max:255'],
+            'image' =>  ['image', 'file', 'max:2048'],
             'body' => ['required', 'min:5',],
             'priority' => ['required', 'integer', 'min:1', 'max:10'],
             'category_id' => ['required', 'integer', 'min:1'],
@@ -81,11 +77,21 @@ class DashboardEventsController extends Controller
         // kalo ada, slug nya di bedain
         // kalo ga ya yauda paek yg request title yg baru
         if($filteredTitle != null) {
+
             $title = collect($filteredTitle)->first()->title;
             $newSlug = Str::of($title)->append(" " . Str::random(5));
             $validatedData['slug'] = Str::slug($newSlug, '-');
+
         } else {
             $validatedData['slug'] = Str::slug($validatedData['title'], '-');
+        }
+
+
+        // cek apakah input gambar
+        if($request->file('image')) {
+
+            // *name-form dan nama folder nya, me return path (string url) yg di simpen
+            $validatedData['image'] = $request->file('image')->store('events-images');
         }
 
         // add another field
