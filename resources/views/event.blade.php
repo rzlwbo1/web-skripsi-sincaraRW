@@ -8,7 +8,11 @@
       <article>
         <h1 class="my-2 my-md-3">{{ $event->title }}</h1>
 
-        <img src="https://picsum.photos/seed/{{ $event->category->slug }}/300" alt="images">
+        @if ($event->image)
+          <img src="{{ asset('storage/' . $event->image) }}" alt="images" class="img-fluid" style="border-radius: 0; height: 350px;">  
+        @else
+          <img src="https://picsum.photos/seed/{{ $event->category->slug }}/300" alt="images">
+        @endif
 
         <p class="text-muted mt-4">Pembuat : <a href="/acara?users={{ $event->user->username }}" class="text-reset">{{ $event->user->name }}</a> dalam kategori <a href="/acara?category{{ $event->category->slug }}" class="text-reset">{{ $event->category->name }}</a></p>
         {{-- <p>{{ $event->body }}</p> --}}

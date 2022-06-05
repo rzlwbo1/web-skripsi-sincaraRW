@@ -57,9 +57,9 @@ class DashboardEventsController extends Controller
         // dd($request);
                 
         $validatedData = $request->validate([
-            'title' => ['required', 'min:5', 'max:255'],
+            'title' => ['required', 'min:1', 'max:255'],
             'image' =>  ['image', 'file', 'max:2048'],
-            'body' => ['required', 'min:5',],
+            'body' => ['required', 'min:1',],
             'priority' => ['required', 'integer', 'min:1', 'max:10'],
             'category_id' => ['required', 'integer', 'min:1'],
             'publish_at' => ['required'],

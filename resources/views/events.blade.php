@@ -40,7 +40,11 @@
         <div class="card">
           <p class="card-header"><a href="/acara?category={{ $event->category->slug }}">{{ $event->category->name }}</a></p>
     
-          <img src="https://picsum.photos/seed/{{ $event->category->slug }}/200" class="card-img-top" alt="images" class="img-thumbnail" style="border-radius: 0;" height="250">
+          @if ($event->image)
+            <img src="{{ asset('storage/' . $event->image) }}" alt="images" class="img-fluid card-image-top" style="border-radius: 0;">  
+          @else
+            <img src="https://picsum.photos/seed/{{ $event->category->slug }}/300" alt="images" class="img-fluid card-image-top" style="border-radius: 0;" height="250">
+          @endif
     
           <div class="card-body">
             <h3 class="card-title">
