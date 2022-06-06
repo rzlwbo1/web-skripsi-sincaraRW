@@ -6,7 +6,7 @@
       <div class="field-post pb-3">
         <h2>Edit acara</h2>
         <hr>
-        <form action="/dashboard/events/{{ $event->slug }}" method="post">
+        <form action="/dashboard/events/{{ $event->slug }}" method="post" enctype="multipart/form-data">
           @method('PUT')
           @csrf
           
@@ -15,6 +15,23 @@
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $event->title) }}" required autofocus>
             @error('title')
               <div class="invalid-feedback">Judul wajib di isi</div>
+            @enderror
+          </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Gambar (opsional)</label>
+            <small class="text-danger">maksimal 2mb</small>
+
+            {{-- kalo ada img sblumnya tampilin --}}
+            @if ($event->image)
+              <img src="{{ asset('storage/' . $event->image) }}" class="img-preview img-fluid my-2 w-25 d-block">
+            @else
+              <img class="img-preview img-fluid my-2 w-25">
+            @endif
+
+            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+            @error('image') 
+              <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
       
@@ -79,6 +96,35 @@
   <script>
     document.addEventListener('trix-file-accept', function(evt) {
       evt.preventDefault();
-    })
+    });
+
+
+    function previewImage() {
+
+      const imageInput = document.getElementById("image");
+      const imgPreview = document.querySelector(".img-preview");
+
+      imgPreview.style.display = 'block';
+
+      const Reader = new FileReader();
+      Reader.readAsDataURL(imageInput.files[0])
+
+      Reader.onload = function(oFREvent) {
+        imgPreview.src = oFREvent.target.result;
+      }
+
+
+      // dari dev.to
+
+      // if(evt.target.files.length > 0){
+      //   let src = URL.createObjectURL(evt.target.files[0]);
+      //   imgPreview.src = src;
+      //   imgPreview.style.display = "block";
+      // }
+
+      // console.dir(imageInput);
+
+
+    }
   </script>
 @endsection

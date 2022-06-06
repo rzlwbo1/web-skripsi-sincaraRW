@@ -33,10 +33,9 @@
               Kembali ke semua acara
             </a>
 
-            <form>
-              @csrf
-              <button type="submit" class="btn text-body btn-warning mb-2">Edit informasi</button>
-            </form>
+            <a href="/dashboard/events/{{ $event->slug }}/edit" class="btn text-body btn-warning mb-2">
+              Edit Acara
+            </a>
 
             <form action="/dashboard/events/{{ $event->slug }}" method="post" title="hapus">
               @method('delete')

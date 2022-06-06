@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Category;
-use Illuminate\Console\Scheduling\EventMutex;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardEventsController extends Controller
 {
@@ -171,6 +171,7 @@ class DashboardEventsController extends Controller
         // validasi
         $validatedData = $request->validate([
             'title' => ['required', 'min:5', 'max:255'],
+            'image' => ['image', 'file', 'max:2048'],
             'body' => ['required', 'min:5',],
             'priority' => ['required', 'integer', 'min:1', 'max:10'],
             'category_id' => ['required', 'integer', 'min:1'],
@@ -198,6 +199,17 @@ class DashboardEventsController extends Controller
 
         }
 
+        // cek apakah input gambar
+        if($request->file('image')) {
+
+            //delete gambar yang lama
+            if($event->image) {
+                Storage::delete($event->image);
+            }
+
+            // *name-form dan nama folder nya, me return path (string url) yg di simpen
+            $validatedData['image'] = $request->file('image')->store('events-images');
+        }
 
         // add anoteher field
         $validatedData['slug'] = $currentSlug;
@@ -220,6 +232,10 @@ class DashboardEventsController extends Controller
      */
     public function destroy(Event $event)
     {
+        if($event->image) {
+            Storage::delete($event->image);
+        }
+
         Event::destroy($event->id);
 
         return redirect('/dashboard/events')->with('deleted', "Data berhasil dihapus");
