@@ -33,6 +33,20 @@
         </svg> Acara
       </a>
     </li>
+
+
+    <li class="nav-title">Administrator</li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard/categories">
+        <svg class="nav-icon">
+          <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-grid"></use>
+        </svg>
+         Kelola Category
+      </a>
+    </li>
+
+
+
     <li class="nav-title">Components</li>
     <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">

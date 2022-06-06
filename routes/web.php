@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AdminCategoryController;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -94,3 +94,8 @@ Route::get('/dashboard', function() {
 
 // CRUD DASHBOARD using resources controller
 Route::resource("/dashboard/events", DashboardEventsController::class)->middleware('auth');
+
+
+// admin controler
+// tidak mengizinkan method show jalan, karna ga perllu
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
