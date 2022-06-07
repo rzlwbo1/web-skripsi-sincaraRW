@@ -21,7 +21,15 @@ class isAdmin
 
         // ketika guest atau login bukan si rizalbow, maka abort
         // rizalbow adalah admin
-        if(auth()->guest() || auth()->user()->username != 'rizalbow') {
+        // if(auth()->guest() || auth()->user()->username != 'rizalbow') {
+        //     abort(403);
+        // }
+
+
+        // NEW ada is admin field
+        // ketika guest kasih abort
+        // atau login itu admin? kalo admin di buat false, maka abort
+        if(auth()->guest() || ! auth()->user()->is_admin) {
             abort(403);
         }
 

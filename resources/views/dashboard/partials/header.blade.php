@@ -32,7 +32,7 @@
           </div>
           {{-- <div class="dropdown-divider"></div> --}}
 
-          <a href="" class="dropdown-item">
+          <a href="/" class="dropdown-item">
             <svg class="icon me-2">
               <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-browser"></use>
             </svg>
