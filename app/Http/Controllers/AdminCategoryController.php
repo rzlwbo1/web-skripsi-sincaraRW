@@ -14,7 +14,10 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        return 'ini category';
+        return view('dashboard.categories.index', [
+            "categories" => Category::all(),
+            "state" => "Kategori",
+        ]);
     }
 
     /**

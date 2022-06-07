@@ -98,4 +98,5 @@ Route::resource("/dashboard/events", DashboardEventsController::class)->middlewa
 
 // admin controler
 // tidak mengizinkan method show jalan, karna ga perllu
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
+// buat middleware admin sendiri dan assign ke routes ini
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
