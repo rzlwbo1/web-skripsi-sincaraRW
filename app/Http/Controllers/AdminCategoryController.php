@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AdminCategoryController extends Controller
 {
@@ -14,6 +15,10 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
+
+        // jika yang masuk ke gate kalo bukan admin langsung 403
+        Gate::authorize('admin');
+
         return view('dashboard.categories.index', [
             "categories" => Category::all(),
             "state" => "Kategori",
@@ -60,7 +65,7 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return "edit";
     }
 
     /**

@@ -35,16 +35,17 @@
     </li>
 
 
-    <li class="nav-title">Administrator</li>
-    <li class="nav-item">
-      <a class="nav-link" href="/dashboard/categories">
-        <svg class="nav-icon">
-          <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-grid"></use>
-        </svg>
-         Kelola Category
-      </a>
-    </li>
-
+    @can('admin')
+      <li class="nav-title">Administrator</li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
+          <svg class="nav-icon">
+            <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-grid"></use>
+          </svg>
+          Kelola Category
+        </a>
+      </li>
+    @endcan
 
 
     <li class="nav-title">Components</li>

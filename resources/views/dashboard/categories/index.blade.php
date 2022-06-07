@@ -33,7 +33,7 @@
         </div>
       @endif
 
-    <a href="/dashboard/events/create" class="btn btn-primary">Buat kategori baru</a>
+    <a href="/dashboard/categories/create" class="btn btn-primary">Buat kategori baru</a>
 
     <div class="table-responsive table-informations my-3 bg-white">
       <table class="table table-bordered table-hover ">
@@ -52,15 +52,15 @@
                 <th scope="row" class="text-center">{{ $loop->iteration }}</th>
                 <td>{{ $cat->name }}</td>
                 <td class="d-flex justify-content-evenly">
-                  <a href="/dashboard/categories/{{ $cat->slug }}" class="btn btn-sm btn-light">
+                  {{-- <a href="/dashboard/categories/{{ $cat->slug }}" class="btn btn-sm btn-light">
                     <img src="/admin/assets/icons/eye.svg" alt="show icon" width="25">
-                  </a>
+                  </a> --}}
 
-                  <a href="/dashboard/categories/{{ $cat->slug }}/edit" class="btn btn-sm btn-info">
+                  <a href="/dashboard/categories/{{ $cat->id }}/edit" class="btn btn-sm btn-info">
                     <img src="/admin/assets/icons/pencil.svg" alt="show icon" width="25">
                   </a>
 
-                  <form action="/dashboard/categories/{{ $cat->slug }}" method="post" title="hapus">
+                  <form action="/dashboard/categories/{{ $cat->id }}" method="post" title="hapus">
                     @method('delete')
                     @csrf
                     <button class="btn btn-sm btn-danger" onclick="return confirm('yakin ingin menghapus?')">

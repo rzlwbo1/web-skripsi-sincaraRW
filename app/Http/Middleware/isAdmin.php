@@ -17,7 +17,7 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        // logic middleware sendiri
+        // logic middleware sendiri untuk fitur administrator
 
         // ketika guest atau login bukan si rizalbow, maka abort
         // rizalbow adalah admin
