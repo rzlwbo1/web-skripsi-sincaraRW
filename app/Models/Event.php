@@ -25,11 +25,11 @@ class Event extends Model
     });
 
 
-    $query->when($filters['category'] ?? false, function($query, $category) {
+    $query->when($filters['category_event'] ?? false, function($query, $category_event) {
 
-      // use itu ambil variabel dari parent scope
-      return $query->whereHas('category', function(Builder $query) use ($category) {
-        $query->where('slug', $category);
+      // use itu ambil variabel dari parent scope, categoryEvent = model
+      return $query->whereHas('categoryEvent', function(Builder $query) use ($category_event) {
+        $query->where('slug', $category_event);
       });
 
     });

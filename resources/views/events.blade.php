@@ -3,9 +3,6 @@
 
 @section('content')
 
-
-  <a href="/acara/add" class="btn btn-primary mb-3" style="font-size: 1.2rem"><i class="bi bi-plus-circle-fill" style="font-size: 1.2rem"></i> buat Informasi  baru</a>
-
   <h1>{{ $titleSub }}</h1>
 
   <div class="search-field">
@@ -38,12 +35,12 @@
 
       <div class="col">
         <div class="card">
-          <p class="card-header"><a href="/acara?category={{ $event->category->slug }}">{{ $event->category->name }}</a></p>
+          <p class="card-header"><a href="/acara?category_event={{ $event->categoryEvent->slug }}">{{ $event->categoryEvent->name }}</a></p>
     
           @if ($event->image)
             <img src="{{ asset('storage/' . $event->image) }}" alt="images" class="img-fluid card-image-top" style="border-radius: 0;">  
           @else
-            <img src="https://picsum.photos/seed/{{ $event->category->slug }}/300" alt="images" class="img-fluid card-image-top" style="border-radius: 0;" height="250">
+            <img src="https://picsum.photos/seed/{{ $event->categoryEvent->slug }}/300" alt="images" class="img-fluid card-image-top" style="border-radius: 0;" height="250">
           @endif
     
           <div class="card-body">

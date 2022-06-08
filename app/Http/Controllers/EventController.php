@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\Category;
+use App\Models\CategoryEvent;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -18,8 +18,8 @@ class EventController extends Controller
 
     $titleOnPage = '';
 
-    if(request('category')) {
-      $cat = Category::firstWhere('slug', request('category'));
+    if(request('category_event')) {
+      $cat = CategoryEvent::firstWhere('slug', request('category_event'));
       $titleOnPage = " di " . $cat->name;
     }
 
@@ -30,10 +30,10 @@ class EventController extends Controller
 
     return view('events', [
       "title" => 'Semua informasi & acara',
-      "titleSub" => 'Semua informasi & acara' . $titleOnPage,
+      "titleSub" => 'Semua Acara ' . $titleOnPage,
       "active" => 'acara',
       // pake eager loader
-      "events" => Event::latest()->with(['user', 'category'])->filter(request(['search_query', 'category', 'users']))->paginate(6)->withQueryString(),
+      "events" => Event::latest()->with(['user', 'categoryEvent'])->filter(request(['search_query', 'category_event', 'users']))->paginate(6)->withQueryString(),
     ]);
 
   }
@@ -63,7 +63,7 @@ class EventController extends Controller
 
   public function add() {
     
-    $category = Category::all();
+    $category = CategoryEvent::all();
     return view('create', ['category' => $category]);
 
   }
@@ -101,7 +101,7 @@ class EventController extends Controller
   public function edit($id) {
 
     $event = Event::find($id);
-    $category = Category::all();
+    $category = CategoryEvent::all();
     return view("edit", [
       "event" => $event,
       "category" => $category,

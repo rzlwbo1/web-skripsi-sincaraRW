@@ -11,7 +11,7 @@
         </li>
         <li class="nav-item">
 
-          <a class="nav-link {{ $active === "acara" ? 'active' : '' }}" href="/acara">Informasi & Acara</a>
+          <a class="nav-link {{ $active === "acara" ? 'active' : '' }}" href="/acara">Acara</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ $active === "categories" ? 'active' : '' }}" href="/categories">Kategori</a>
