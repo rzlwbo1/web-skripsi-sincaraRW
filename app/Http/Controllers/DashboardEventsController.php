@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\Category;
+use App\Models\CategoryEvent;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +38,7 @@ class DashboardEventsController extends Controller
     public function create()
     {
 
-        $category = Category::all();
+        $category = CategoryEvent::all();
         return view('dashboard.events.create', [
             "state" => "Buat Post",
             "category" => $category,
@@ -55,16 +55,18 @@ class DashboardEventsController extends Controller
     {
 
         // dd($request);
-                
+
         $validatedData = $request->validate([
             'title' => ['required', 'min:1', 'max:255'],
             'image' =>  ['image', 'file', 'max:2048'],
             'body' => ['required', 'min:1',],
             'priority' => ['required', 'integer', 'min:1', 'max:10'],
-            'category_id' => ['required', 'integer', 'min:1'],
-            'publish_at' => ['required'],
+            'category_event_id' => ['required', 'integer', 'min:1'],
+            'location' => ['required'],
+            'date_at' => ['required'],
             'time_at' => ['required'],
         ]);
+
 
         // Cek ketika ada judul yg sama, maka slug nya kita bedain
 
@@ -144,7 +146,7 @@ class DashboardEventsController extends Controller
 
         return View::make('dashboard.events.edit', [
             "state" => "Edit Acara",
-            "category" => Category::all(),
+            "category" => CategoryEvent::all(),
             "event" => $event, 
         ]);
     }
@@ -174,10 +176,13 @@ class DashboardEventsController extends Controller
             'image' => ['image', 'file', 'max:2048'],
             'body' => ['required', 'min:5',],
             'priority' => ['required', 'integer', 'min:1', 'max:10'],
-            'category_id' => ['required', 'integer', 'min:1'],
-            'publish_at' => ['required'],
+            'category_event_id' => ['required', 'integer', 'min:1'],
+            'location' => ['required'],
+            'date_at' => ['required'],
             'time_at' => ['required'],
         ]);
+
+
 
         // cek kalo title gak ganti
         if($event->title == $request->title) {
@@ -215,7 +220,6 @@ class DashboardEventsController extends Controller
         $validatedData['slug'] = $currentSlug;
         $validatedData['user_id'] = Auth::id(); // ambil id yg sedang login
         $validatedData['excerpt'] = Str::limit(strip_tags($validatedData['body'], 100));
-
 
         Event::where('id', $event->id)
             ->update($validatedData);

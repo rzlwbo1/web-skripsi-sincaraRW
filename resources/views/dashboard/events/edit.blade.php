@@ -53,32 +53,41 @@
             @enderror
           </div>
     
-          <div class="mb-3 w-25">
+          <div class="mb-3 w-50">
             <label for="category">Kategori</label>
-            <select name="category_id" id="category" class="form-select @error('category_id') is-invalid @enderror" required>
+            <select name="category_event_id" id="category" class="form-select @error('category_event_id') is-invalid @enderror" required>
               <option value="0">--Pilih kategori--</option>
               @foreach ($category as $cat)
-                @if (old('category_id', $event->category_id) == $cat->id)
+                @if (old('category_event_id', $event->category_event_id) == $cat->id)
                 <option value="{{ $cat->id }}" selected>{{ $cat->name }}</option>
                 @else
                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                 @endif
               @endforeach
             </select>
-            @error('category_id')
+            @error('category_event_id')
               <div class="invalid-feedback">Kategori wajib di isi</div>
             @enderror
           </div>
+
+          <div class="mb-3 w-50">
+            <label for="tanggal" class="form-label">Lokasi</label>
+            <input type="text" class="form-control @error('location') is-invalid @enderror" id="tanggal" name="location" value="{{ old('location', $event->location) }}" required>
+            <small class="d-block text-body mt-0">Contoh : Bekasi, Tambun-selatan</small>
+            @error('location')
+              <div class="invalid-feedback">Lokasi wajib di isi</div>
+            @enderror
+          </div>
       
-          <div class="mb-3 w-25">
+          <div class="mb-3 w-50">
             <label for="tanggal" class="form-label">Tanggal</label>
-            <input type="date" class="form-control @error('publish_at') is-invalid @enderror" id="tanggal" name="publish_at" value="{{ old('publish_at', $event->publish_at) }}" required>
-            @error('publish_at')
+            <input type="date" class="form-control @error('date_at') is-invalid @enderror" id="tanggal" name="date_at" value="{{ old('date_at', $event->date_at) }}" required>
+            @error('date_at')
               <div class="invalid-feedback">Tanggal wajib di isi</div>
             @enderror
           </div>
       
-          <div class="mb-3 w-25">
+          <div class="mb-3 w-50">
             <label for="Waktu" class="form-label">Waktu</label>
             <input type="time" class="form-control @error('time_at') is-invalid @enderror" id="Waktu" name="time_at" value="{{ old('time_at', $event->time_at) }}" required>
             @error('time_at')

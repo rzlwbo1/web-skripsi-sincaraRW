@@ -54,7 +54,7 @@
                 <th scope="row" class="text-center">{{ $loop->iteration }}</th>
                 <td>{{ $event->title }}</td>
                 <td>{{ $event->priority }}</td>
-                <td>{{ $event->category->name }}</td>
+                <td>{{ $event->categoryEvent->name }}</td>
                 <td class="d-flex justify-content-evenly">
                   <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-sm btn-light">
                     <img src="/admin/assets/icons/eye.svg" alt="show icon" width="25">
