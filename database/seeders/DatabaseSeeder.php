@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\Event;
 use App\Models\Category;
+use App\Models\CategoryEvent;
 use App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -28,11 +29,6 @@ class DatabaseSeeder extends Seeder
         
         User::factory()->count(3)->create();
 
-        // User::create([
-        //     "name" => "Mang bowo",
-        //     "email" => "bow@mail.com",
-        //     "password" => Hash::make('password')
-        // ]);
 
         Category::create([
             "name" => "Acara",
@@ -47,6 +43,22 @@ class DatabaseSeeder extends Seeder
         Category::create([
             "name" => "Informasi",
             "slug" => 'informasi'
+        ]);
+
+
+        CategoryEvent::create([
+            "name" => "Undangan",
+            "slug" => 'undangan'
+        ]);
+
+        CategoryEvent::create([
+            "name" => "Formal",
+            "slug" => 'formal'
+        ]);
+
+        CategoryEvent::create([
+            "name" => "Non Formal",
+            "slug" => 'non-formal'
         ]);
 
         Event::factory()->count(15)->create();

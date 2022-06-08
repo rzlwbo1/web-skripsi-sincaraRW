@@ -23,15 +23,16 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => mt_rand(1, 3),
-            'user_id' => mt_rand(1, 4),
+            'category_event_id' => mt_rand(1, 3),
+            'user_id' => mt_rand(1, 3),
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
             'priority' => mt_rand(1, 5),
             'excerpt' => $this->faker->paragraph(),
             // di map biar bisa di sisipin tag p
             'body' => collect($this->faker->paragraphs(mt_rand(3, 8)))->map(fn($p, $key) => "<p>$p</p>")->implode(''),
-            'publish_at' =>$this->faker->date(),
+            'location' => $this->faker->countryCode(),
+            'date_at' =>$this->faker->date(),
             'time_at' => $this->faker->time()
         ];
     }

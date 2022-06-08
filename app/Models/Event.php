@@ -75,6 +75,13 @@ class Event extends Model
   }
 
 
+  // satu acara memiliki satu kategori, gamau lebih, (invers)
+  // tpi satu kategori ada banyak acara 
+  public function categoryEvent() 
+  {
+    return $this->belongsTo(CategoryEvent::class, 'category_event_id');
+  }
+
   // ini relasi invers juga yg dmnaa, satu acara cuma bisa di tulis satu user, yakali satu acara di tulis 2 user, bentrok wkwk
   public function user()
   {
