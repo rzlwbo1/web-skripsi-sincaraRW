@@ -17,7 +17,7 @@
         </svg> Dashboard
       </a>
     </li>
-    <li class="nav-title">Kelola Informasi</li>
+    <li class="nav-title">Kelola Informasi & Acara</li>
     <li class="nav-item">
       <a class="nav-link {{ Request::is('dashboard/informations*') ? 'active' : '' }}" href="/dashboard/informations">
         <svg class="nav-icon">

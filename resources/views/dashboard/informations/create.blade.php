@@ -4,9 +4,9 @@
   <div class="body flex-grow-1 px-3">
     <div class="container-lg">
       <div class="field-post pb-3">
-        <h2>Membuat acara baru</h2>
+        <h2>Membuat informasi baru</h2>
         <hr>
-        <form action="/dashboard/events" method="post" enctype="multipart/form-data">
+        <form action="/dashboard/informations" method="post" enctype="multipart/form-data">
           @csrf
           
           <div class="mb-3">
@@ -33,8 +33,8 @@
             @error('body') 
               <p class="text-danger">Deskripsi wajib di is</p>
             @enderror
-            <input id="body" type="hidden" name="body" value="{{ old('body') }}" class=" @error('body') is-invalid @enderror">
-            <trix-editor input="body"  required></trix-editor>
+            <input id="body" type="hidden" name="body" value="{{ old('body') }}" class=" @error('body') is-invalid @enderror" required>
+            <trix-editor input="body" value="{{ old('body') }}"></trix-editor>
           </div>
       
           <div class="mb-3 w-50">
@@ -48,47 +48,33 @@
     
           <div class="mb-3 w-50">
             <label for="category">Kategori</label>
-            <select name="category_event_id" id="category" class="form-select @error('category_event_id') is-invalid @enderror" required>
+            <select name="category_information_id" id="category" class="form-select @error('category_information_id') is-invalid @enderror" required>
+
               <option value="0">--Pilih kategori--</option>
               @foreach ($category as $cat)
-                @if (old('category_event_id') == $cat->id)
+                @if (old('category_information_id') == $cat->id)
                 <option value="{{ $cat->id }}" selected>{{ $cat->name }}</option>
                 @else
                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                 @endif
               @endforeach
+
             </select>
-            @error('category_event_id')
+            @error('category_information_id')
               <div class="invalid-feedback">Kategori wajib di isi</div>
             @enderror
           </div>
 
           <div class="mb-3 w-50">
-            <label for="tanggal" class="form-label">Lokasi</label>
-            <input type="text" class="form-control @error('location') is-invalid @enderror" id="tanggal" name="location" value="{{ old('location') }}" required>
-            <small class="d-block text-body mt-0">Contoh : Bekasi, Tambun-selatan</small>
-            @error('location')
-              <div class="invalid-feedback">Lokasi wajib di isi</div>
+            <label for="surat" class="form-label">Tambah Surat (opsional)</label>
+            <input type="file" class="form-control @error('letter') is-invalid @enderror" id="surat" name="letter">
+            <small class="text-danger d-block">pdf, docx, doc, xls | maks 4mb</small>
+            @error('letter')
+              <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
       
-          <div class="mb-3 w-50">
-            <label for="tanggal" class="form-label">Tanggal</label>
-            <input type="date" class="form-control @error('date_at') is-invalid @enderror" id="tanggal" name="date_at" value="{{ old('date_at') }}" required>
-            @error('date_at')
-              <div class="invalid-feedback">Tanggal wajib di isi</div>
-            @enderror
-          </div>
-      
-          <div class="mb-3 w-50">
-            <label for="Waktu" class="form-label">Waktu</label>
-            <input type="time" class="form-control @error('time_at') is-invalid @enderror" id="Waktu" name="time_at" value="{{ old('time_at') }}" required>
-            @error('time_at')
-              <div class="invalid-feedback">Waktu wajib di isi</div>
-            @enderror
-          </div>
-      
-          <button type="submit" class="btn btn-primary w-100">Tambah Acara</button>
+          <button type="submit" class="btn btn-primary mt-3 w-100">Tambah Informasi</button>
         </form>
       </div>
     </div>

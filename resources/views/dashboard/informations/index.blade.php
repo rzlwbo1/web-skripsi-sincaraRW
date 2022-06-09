@@ -68,7 +68,7 @@
                     <img src="/admin/assets/icons/eye.svg" alt="show icon" width="25">
                   </a>
 
-                  <a href="/dashboard/informations/{{ $info->slug }}/edit" class="btn btn-sm btn-info">
+                  <a href="/dashboard/informations/{{ $info->id }}/edit" class="btn btn-sm btn-info">
                     <img src="/admin/assets/icons/pencil.svg" alt="show icon" width="25">
                   </a>
 
