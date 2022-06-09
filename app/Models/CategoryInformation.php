@@ -10,4 +10,10 @@ class CategoryInformation extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+
+    // relationship
+    public function information() {
+        return $this->hasMany(Information::class);
+    }
 }

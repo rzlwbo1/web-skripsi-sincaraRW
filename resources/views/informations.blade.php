@@ -9,7 +9,7 @@
 
       <div class="col">
         <div class="card">
-          <p class="card-header"><a href="/acara?category_event=">Berita</a></p>
+          <p class="card-header"><a href="/acara?category_event=">{{ $info->categoryInformation->name }}</a></p>
     
           @if ($info->image)
             <img src="{{ asset('storage/' . $info->image) }}" alt="images" class="img-fluid card-image-top" style="border-radius: 0;">  
@@ -23,7 +23,7 @@
             </h3>
 
             <h6 class="card-subtitle text-muted my-3">
-              Pembuat : <a href="/acara?users=">Rizal</a>
+              Pembuat : <a href="/acara?users=">{{ $info->user->name }}</a>
             </h6>
 
             <p class="card-text">{{ $info->excerpt }}</p>

@@ -68,8 +68,9 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::get('/users/{user:username}', [UserController::class, 'show']);
 
-
+// Informations
 Route::get('/informasi', [InformationController::class, 'index']);
+Route::get('/informasi/{information:slug}', [InformationController::class, 'show']);
 
 
 // LOGIN & REGISTER
