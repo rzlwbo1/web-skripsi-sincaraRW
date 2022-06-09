@@ -51,7 +51,10 @@ class DashboardInformationsController extends Controller
      */
     public function show(Information $information)
     {
-        return $information;
+        return view('dashboard.informations.detail', [
+            'state' => "Detail Information",
+            'info' => $information,
+        ]);
     }
 
     /**
