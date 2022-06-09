@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\Event;
 use App\Models\Category;
 use App\Models\CategoryEvent;
+use App\Models\CategoryInformation;
 use App\Models\Information;
 use App\Models\User;
 
@@ -61,7 +62,23 @@ class DatabaseSeeder extends Seeder
             "name" => "Non Formal",
             "slug" => 'non-formal'
         ]);
+        
 
+        CategoryInformation::create([
+            "name" => "Berita",
+            "slug" => 'berita'
+        ]);
+
+        CategoryInformation::create([
+            "name" => "Informasi Terbatas",
+            "slug" => 'informasi-terbatas'
+        ]);
+
+        CategoryInformation::create([
+            "name" => "Informasi Umum",
+            "slug" => 'informasi-umum'
+        ]);
+        
         Event::factory()->count(15)->create();
 
         Information::factory()->count(10)->create();
