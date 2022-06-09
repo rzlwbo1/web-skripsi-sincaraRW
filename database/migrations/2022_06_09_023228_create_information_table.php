@@ -19,10 +19,11 @@ class CreateInformationTable extends Migration
             $table->foreignId('category_information_id');
             $table->string('title');
             $table->string('slug');
+            $table->string('image')->nullable();
             $table->text('body');
             $table->text('excerpt');
             $table->smallInteger('priority');
-            $table->string('letter');
+            $table->string('letter')->nullable();
             $table->timestamps();
         });
     }

@@ -10,8 +10,10 @@
           <a class="nav-link {{ $active === "beranda" ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
         </li>
         <li class="nav-item">
-
           <a class="nav-link {{ $active === "acara" ? 'active' : '' }}" href="/acara">Acara</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ $active === "informasi" ? 'active' : '' }}" href="/informasi">Informasi</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ $active === "categories" ? 'active' : '' }}" href="/categories">Kategori</a>

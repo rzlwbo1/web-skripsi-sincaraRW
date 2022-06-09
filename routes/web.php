@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardEventsController;
+use App\Http\Controllers\InformationController;
 use App\Http\Controllers\RegisterController;
 
 // use App\Models\Acara;
@@ -66,6 +67,9 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::get('/users/{user:username}', [UserController::class, 'show']);
+
+
+Route::get('/informasi', [InformationController::class, 'index']);
 
 
 // LOGIN & REGISTER
