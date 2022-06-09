@@ -4,7 +4,7 @@
 @section('content-admin')
 <div class="body flex-grow-1 px-3">
   <div class="container-lg">
-    <h2>Kumpulan Acara</h2>
+    <h2>Kumpulan Informasi</h2>
 
 
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -33,38 +33,46 @@
         </div>
       @endif
 
-    <a href="/dashboard/events/create" class="btn btn-primary">Buat Acara baru</a>
+    <a href="/dashboard/informations/create" class="btn btn-primary">Buat Informasi baru</a>
 
     <div class="table-responsive table-informations my-3 bg-white">
       <table class="table table-bordered table-hover">
         <thead>
           <tr class="text-center">
             <th scope="col">No</th>
-            <th scope="col">Judul Acara</th>
+            <th scope="col" style="width: 40%">Judul Informasi</th>
             <th scope="col">Prioritas</th>
             <th scope="col">Kategori</th>
+            <th scope="col">Surat</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
 
         <tbody>
-          @if (count($events) > 0)
-            @foreach ($events as $event)
+          @if (count($informations) > 0)
+            @foreach ($informations as $info)
               <tr>
                 <th scope="row" class="text-center">{{ $loop->iteration }}</th>
-                <td>{{ $event->title }}</td>
-                <td>{{ $event->priority }}</td>
-                <td>{{ $event->categoryEvent->name }}</td>
+                <td>{{ $info->title }}</td>
+                <td>{{ $info->priority }}</td>
+                <td>{{ $info->categoryInformation->name }}</td>
+                <td class="text-center">
+                  <a href="{{ $info->letter }}" class="text-reset d-inline-block">
+                    <svg width="25" height="25">
+                      <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-file"></use>
+                    </svg>
+                  </a>
+                </td>
                 <td class="d-flex justify-content-evenly">
-                  <a href="/dashboard/events/{{ $event->slug }}" class="btn btn-sm btn-light">
+                  <a href="/dashboard/informations/{{ $info->id }}" class="btn btn-sm btn-light">
                     <img src="/admin/assets/icons/eye.svg" alt="show icon" width="25">
                   </a>
 
-                  <a href="/dashboard/events/{{ $event->slug }}/edit" class="btn btn-sm btn-info">
+                  <a href="/dashboard/events/{{ $info->slug }}/edit" class="btn btn-sm btn-info">
                     <img src="/admin/assets/icons/pencil.svg" alt="show icon" width="25">
                   </a>
 
-                  <form action="/dashboard/events/{{ $event->slug }}" method="post" title="hapus">
+                  <form action="/dashboard/events/{{ $info->slug }}" method="post" title="hapus">
                     @method('delete')
                     @csrf
                     <button class="btn btn-sm btn-danger" onclick="return confirm('yakin ingin menghapus?')">
@@ -82,7 +90,7 @@
                   <div class="col-12">
                     <div class="py-3">
                       <h4>Tidak ada acara</h4>
-                      <a href="/dashboard/events/create" class="btn btn-primary mt-3">Buat Acara baru</a>
+                      <a href="/dashboard/informations/create" class="btn btn-primary mt-3">Buat Informasi baru</a>
                     </div>
                   </div>
                 </div>

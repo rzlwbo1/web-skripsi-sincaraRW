@@ -19,7 +19,7 @@
     </li>
     <li class="nav-title">Kelola Informasi</li>
     <li class="nav-item">
-      <a class="nav-link" href="/dashboard/informations">
+      <a class="nav-link {{ Request::is('dashboard/informations*') ? 'active' : '' }}" href="/dashboard/informations">
         <svg class="nav-icon">
           <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-newspaper"></use>
         </svg>

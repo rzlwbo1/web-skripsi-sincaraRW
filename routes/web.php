@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardEventsController;
+use App\Http\Controllers\DashboardInformationsController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\RegisterController;
 
@@ -92,6 +93,8 @@ Route::get('/dashboard', function() {
 // CRUD DASHBOARD using resources controller
 Route::resource("/dashboard/events", DashboardEventsController::class)->middleware('auth');
 
+
+Route::resource('/dashboard/informations', DashboardInformationsController::class);
 
 // admin controler
 // tidak mengizinkan method show jalan, karna ga perllu
