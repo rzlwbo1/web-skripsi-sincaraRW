@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\Event;
 use App\Models\Category;
 use App\Models\CategoryEvent;
+use App\Models\Information;
 use App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -62,6 +63,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Event::factory()->count(15)->create();
+
+        Information::factory()->count(10)->create();
 
         // Event::create([
         //     "category_id" => 1,
