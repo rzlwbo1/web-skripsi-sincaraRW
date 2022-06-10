@@ -227,10 +227,13 @@ class DashboardInformationsController extends Controller
             Storage::delete($information->image);
         }
 
+        // apus file juga
         if($information->letter) {
             Storage::delete($information->letter);
         }
 
         Information::destroy($information->id);
+
+        return redirect('/dashboard/informations')->with('deleted', "Informasi Berhasil di hapus");
     }
 }

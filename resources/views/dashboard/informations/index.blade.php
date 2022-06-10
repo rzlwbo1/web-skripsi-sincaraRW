@@ -72,7 +72,7 @@
                     <img src="/admin/assets/icons/pencil.svg" alt="show icon" width="25">
                   </a>
 
-                  <form action="/dashboard/informations/{{ $info->slug }}" method="post" title="hapus">
+                  <form action="/dashboard/informations/{{ $info->id }}" method="post" title="hapus">
                     @method('delete')
                     @csrf
                     <button class="btn btn-sm btn-danger" onclick="return confirm('yakin ingin menghapus?')">

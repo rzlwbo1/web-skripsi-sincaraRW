@@ -37,7 +37,7 @@
               Edit Acara
             </a>
 
-            <form action="/dashboard/informations/{{ $info->slug }}" method="post" title="hapus">
+            <form action="/dashboard/informations/{{ $info->id }}" method="post" title="hapus" onclick="return confirm('yakin ingin menghapus?')">
               @method('delete')
               @csrf
               <button type="submit" class="btn btn-danger text-white">Hapus informasi</button>
