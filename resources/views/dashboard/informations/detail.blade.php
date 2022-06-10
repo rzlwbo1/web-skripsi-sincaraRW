@@ -33,7 +33,7 @@
               Kembali ke semua acara
             </a>
 
-            <a href="/dashboard/informations/{{ $info->slug }}/edit" class="btn text-body btn-warning mb-2">
+            <a href="/dashboard/informations/{{ $info->id }}/edit" class="btn text-body btn-warning mb-2">
               Edit Acara
             </a>
 

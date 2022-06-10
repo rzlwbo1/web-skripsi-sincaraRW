@@ -93,8 +93,7 @@ Route::get('/dashboard', function() {
 // CRUD DASHBOARD using resources controller
 Route::resource("/dashboard/events", DashboardEventsController::class)->middleware('auth');
 
-
-Route::resource('/dashboard/informations', DashboardInformationsController::class);
+Route::resource('/dashboard/informations', DashboardInformationsController::class)->middleware('auth');
 
 // admin controler
 // tidak mengizinkan method show jalan, karna ga perllu
