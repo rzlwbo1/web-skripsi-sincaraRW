@@ -65,6 +65,7 @@ class DashboardEventsController extends Controller
             'location' => ['required'],
             'date_at' => ['required'],
             'time_at' => ['required'],
+            'letter' => ['file', 'mimes:pdf,doc,docx,xls', 'max:4096']
         ]);
 
 
@@ -94,6 +95,14 @@ class DashboardEventsController extends Controller
 
             // *name-form dan nama folder nya, me return path (string url) yg di simpen
             $validatedData['image'] = $request->file('image')->store('events-images');
+        }
+
+
+        // cek apakah user input file
+        if($request->file('letter')) {
+
+            // *name-form dan nama folder nya, me return path (string url) yg di simpen
+            $validatedData['letter'] = $request->file('letter')->store('events-letter');
         }
 
         // add another field
@@ -180,8 +189,8 @@ class DashboardEventsController extends Controller
             'location' => ['required'],
             'date_at' => ['required'],
             'time_at' => ['required'],
+            'letter' => ['file', 'mimes:pdf,doc,docx,xls', 'max:4096'],
         ]);
-
 
 
         // cek kalo title gak ganti
@@ -204,6 +213,7 @@ class DashboardEventsController extends Controller
 
         }
 
+
         // cek apakah input gambar
         if($request->file('image')) {
 
@@ -216,16 +226,30 @@ class DashboardEventsController extends Controller
             $validatedData['image'] = $request->file('image')->store('events-images');
         }
 
-        // add anoteher field
+
+        // cek apakah input surat
+        if($request->file('letter')) {
+
+            //delete surat yang lama
+            if($event->letter) {
+                Storage::delete($event->letter);
+            }
+
+            // *name-form dan nama folder nya, me return path (string url) yg di simpen
+            $validatedData['letter'] = $request->file('letter')->store('events-letter');
+        }
+
+        // add another field
         $validatedData['slug'] = $currentSlug;
         $validatedData['user_id'] = Auth::id(); // ambil id yg sedang login
         $validatedData['excerpt'] = Str::limit(strip_tags($validatedData['body'], 100));
 
+        // store update
         Event::where('id', $event->id)
             ->update($validatedData);
 
 
-        return redirect('/dashboard/events')->with('edited', "Acara berhasil di ubah");
+        return redirect('/dashboard/events')->with('success', "Acara berhasil di ubah");
     }
 
     /**
@@ -236,12 +260,18 @@ class DashboardEventsController extends Controller
      */
     public function destroy(Event $event)
     {
+        // cek apakah ada gambar di db, maka ikut delete
         if($event->image) {
             Storage::delete($event->image);
         }
 
+         // cek apakah ada gambar di db, maka ikut delete
+         if($event->letter) {
+            Storage::delete($event->letter);
+        }
+
         Event::destroy($event->id);
 
-        return redirect('/dashboard/events')->with('deleted', "Data berhasil dihapus");
+        return redirect('/dashboard/events')->with('deleted', "Acara berhasil dihapus");
     }
 }

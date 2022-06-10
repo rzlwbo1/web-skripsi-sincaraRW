@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\CategoryInformation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
+
 
 class DashboardInformationsController extends Controller
 {
@@ -54,7 +54,7 @@ class DashboardInformationsController extends Controller
             'body' => 'required|min:3',
             'priority' => 'required|integer|min:1',
             'category_information_id' => 'required|integer|min:1',
-            'letter' => 'file|mimes:pdf,doc,docx,xls|max:4096'
+            'letter' => 'file|mimes:pdf,doc,docx,xls|max:4096',
         ]);
 
         // dd($validatedData);
@@ -89,7 +89,6 @@ class DashboardInformationsController extends Controller
 
 
         // cek apakah user input file
-        // cek apakah input gambar
         if($request->file('letter')) {
 
             // *name-form dan nama folder nya, me return path (string url) yg di simpen

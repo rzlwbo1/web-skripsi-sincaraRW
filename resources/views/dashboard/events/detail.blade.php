@@ -23,7 +23,10 @@
                   <h5>Waktu : {{ $event->time_at }}</h5>
                   <h5>Lokasi : {{ $event->location }}</h5>
                 </div>
+
                 <p class="fs-5 mb-1 mt-3">{!! $event->body !!}</p>
+
+                <h6>Surat terkait : <a href="{{ $event->letter }}">Download</a></h6>
             </div>
           </div>
         </div>
@@ -38,7 +41,7 @@
               Edit Acara
             </a>
 
-            <form action="/dashboard/events/{{ $event->slug }}" method="post" title="hapus">
+            <form action="/dashboard/events/{{ $event->slug }}" method="post" title="hapus" onclick="return confirm('yakin ingin menghapus?')">
               @method('delete')
               @csrf
               <button type="submit" class="btn btn-danger text-white">Hapus informasi</button>

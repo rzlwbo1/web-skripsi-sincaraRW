@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->text('body');
             $table->smallInteger("priority");
             $table->string('location');
+            $table->string('letter')->nullable();
             $table->date('date_at')->nullable();
             $table->timeTz('time_at')->nullable();
             $table->timestamps();

@@ -94,6 +94,23 @@
               <div class="invalid-feedback">Waktu wajib di isi</div>
             @enderror
           </div>
+
+          <div class="mb-3 w-50">
+            <label for="surat" class="form-label">Tambah Surat (opsional)</label>
+            
+            @if ($event->letter)
+              <p class="my-1 text-black-50">file sebelumnya : {{ Str::of($event->letter)->after('events-letter/'); }}</p>
+            @else
+              <p class="my-3 text-info">file sebelumnya : Tidak ada</p>
+            @endif
+
+            <input type="file" class="form-control @error('letter') is-invalid @enderror" id="surat" name="letter">
+            <small class="text-danger d-block">pdf, docx, doc, xls | maks 4mb</small>
+            @error('letter')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+
       
           <button type="submit" class="btn btn-primary">Edit Acara</button>
         </form>

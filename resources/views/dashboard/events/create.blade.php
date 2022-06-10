@@ -87,6 +87,15 @@
               <div class="invalid-feedback">Waktu wajib di isi</div>
             @enderror
           </div>
+
+          <div class="mb-3 w-50">
+            <label for="surat" class="form-label">Tambah Surat (opsional)</label>
+            <input type="file" class="form-control @error('letter') is-invalid @enderror" id="surat" name="letter">
+            <small class="text-danger d-block">pdf, docx, doc, xls | maks 4mb</small>
+            @error('letter')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
       
           <button type="submit" class="btn btn-primary w-100">Tambah Acara</button>
         </form>
