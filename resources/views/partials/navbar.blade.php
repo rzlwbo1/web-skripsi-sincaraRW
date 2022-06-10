@@ -15,12 +15,12 @@
         <li class="nav-item">
           <a class="nav-link {{ $active === "informasi" ? 'active' : '' }}" href="/informasi">Informasi</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link {{ $active === "categories" ? 'active' : '' }}" href="/categories">Kategori</a>
-        </li>
-        <li class="nav-item">
+        </li> --}}
+        {{-- <li class="nav-item">
           <a class="nav-link {{ $active === "about" ? 'active' : '' }}" href="/about">About</a>
-        </li>
+        </li> --}}
       </ul>
 
       {{-- login and regis link --}}

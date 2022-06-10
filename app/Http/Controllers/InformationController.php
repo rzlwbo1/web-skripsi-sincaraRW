@@ -9,7 +9,8 @@ class InformationController extends Controller
 {
     public function index() {
 
-        $informations = Information::latest()->get();
+        // pake eager loading
+        $informations = Information::with(['user', 'categoryInformation'])->latest()->paginate(6);
         return view('informations', [
             'titleSub' => "Semua Informasi",
             'title' => "Informasi",

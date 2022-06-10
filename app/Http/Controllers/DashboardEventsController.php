@@ -24,7 +24,7 @@ class DashboardEventsController extends Controller
 
         return View::make('dashboard.events.index', [
             "state" => "Dashboard",
-            "events" => Event::where('user_id', auth()->user()->id)->latest()->get(),
+            "events" => Event::with(['user', 'categoryEvent'])->where('user_id', auth()->user()->id)->latest()->get(),
         ]);
 
         // return Event::where('user_id', auth()->user()->id)->get();

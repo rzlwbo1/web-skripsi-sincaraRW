@@ -19,7 +19,7 @@ class DashboardInformationsController extends Controller
      */
     public function index()
     {
-        $informations = Information::where('user_id', Auth::id())->latest()->get();
+        $informations = Information::with(['user', 'categoryInformation'])->where('user_id', Auth::id())->latest()->get();
         return view('dashboard.informations.index', [
             'state' => "information",
             'informations' => $informations,

@@ -39,4 +39,12 @@
     <p>Tidak ada informasi</p>
   @endif
 
+  <div class="row">
+    <div class="col-md-3 offset-md-10">
+      <div class="pagination">
+        {{ $informations->links() }}
+      </div>
+    </div>
+  </div>
+
 @endsection

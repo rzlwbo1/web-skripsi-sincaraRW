@@ -25,6 +25,8 @@
         </div>
         <p class="fs-5 mb-1 mt-3">{!! $event->body !!}</p>
 
+        <h6>Surat Terkait : <a href="{{ $event->letter }}">Download</a></h6>
+
         <br>
         <a href="/acara" role="button" class="btn btn-outline-dark">Kembali</a>
       </article>
