@@ -47,7 +47,7 @@
 
         @guest
           <li class="nav-item">
-            <a class="nav-link {{ $active === "login" ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Masuk</a>
+            <a class="nav-link {{ $active === "login" ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Masuk Pengurus</a>
           </li>
         @endguest
       </ul>

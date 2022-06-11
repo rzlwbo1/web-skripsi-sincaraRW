@@ -20,7 +20,7 @@
             @endif
 
             <div class="input-group mb-3">
-              <input type="search" class="form-control" placeholder="Cari informasi, Acara, Kegiatan" name="search_query" value="{{ request('search_query') }}">
+              <input type="search" class="form-control" placeholder="Cari informasi, Acara" name="search_query" value="{{ request('search_query') }}">
               <button class="btn btn-outline-secondary" type="submit">Cari</button>
             </div>
           </form>
