@@ -3,13 +3,37 @@
 @section('content')
   <h1>{{ $titleSub }}</h1>
 
+  <div class="search-field">
+    <div class="container">
+      <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-6">
+          <form action="/informasi">
+            
+            @if (request('category_event'))
+              <input type="hidden" name="category_event" value="{{ request('category_event') }}">
+            @endif
+
+            @if (request('users'))
+              <input type="hidden" name="users" value="{{ request('users') }}">
+            @endif
+
+            <div class="input-group mb-3">
+              <input type="search" class="form-control" placeholder="Cari informasi" name="search_query" value="{{ request('search_query') }}">
+              <button class="btn btn-outline-secondary" type="submit">Cari</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   @if (count($informations) > 0)
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
     @foreach ($informations as $info)
 
       <div class="col">
         <div class="card">
-          <p class="card-header"><a href="/acara?category_event=">{{ $info->categoryInformation->name }}</a></p>
+          <p class="card-header"><a href="/informasi?category_info={{ $info->categoryInformation->slug }}">{{ $info->categoryInformation->name }}</a></p>
     
           @if ($info->image)
             <img src="{{ asset('storage/' . $info->image) }}" alt="images" class="img-fluid card-image-top" style="border-radius: 0;">  

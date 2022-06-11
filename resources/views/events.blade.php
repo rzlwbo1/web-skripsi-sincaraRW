@@ -11,8 +11,8 @@
         <div class="col-12 col-md-6">
           <form action="/acara">
             
-            @if (request('category'))
-              <input type="hidden" name="category" value="{{ request('category') }}">
+            @if (request('category_event'))
+              <input type="hidden" name="category_event" value="{{ request('category_event') }}">
             @endif
 
             @if (request('users'))
@@ -20,7 +20,7 @@
             @endif
 
             <div class="input-group mb-3">
-              <input type="search" class="form-control" placeholder="Cari informasi, Acara" name="search_query" value="{{ request('search_query') }}">
+              <input type="search" class="form-control" placeholder="Cari Acara" name="search_query" value="{{ request('search_query') }}">
               <button class="btn btn-outline-secondary" type="submit">Cari</button>
             </div>
           </form>

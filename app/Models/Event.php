@@ -18,10 +18,10 @@ class Event extends Model
     // ini logical group, jadi singkatnya kita ada where di dlm where dgn orWhere
 
     $query->when($filters['search_query'] ?? false, function($query, $search_query) {
-        return $query->where(function($query) use ($search_query) {
-              $query->where('title', 'like', '%' . $search_query . '%')
-                    ->orWhere('body', 'like', '%' . $search_query . '%');
-        });
+      return $query->where(function($query) use ($search_query) {
+            $query->where('title', 'like', '%' . $search_query . '%')
+                  ->orWhere('body', 'like', '%' . $search_query . '%');
+      });
     });
 
 

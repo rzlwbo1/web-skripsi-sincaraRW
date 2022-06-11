@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\CategoryEvent;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -29,7 +27,7 @@ class EventController extends Controller
     }
 
     return view('events', [
-      "title" => 'Semua informasi & acara',
+      "title" => 'Semua acara',
       "titleSub" => 'Semua Acara ' . $titleOnPage,
       "active" => 'acara',
       // pake eager loader
