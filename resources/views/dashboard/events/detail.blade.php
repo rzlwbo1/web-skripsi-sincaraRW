@@ -26,7 +26,7 @@
 
                 <p class="fs-5 mb-1 mt-3">{!! $event->body !!}</p>
 
-                <h6>Surat terkait : <a href="{{ $event->letter }}">Download</a></h6>
+                <h6>Surat terkait : <a href="/download/{{ $event->letter }}">Download</a></h6>
             </div>
           </div>
         </div>

@@ -57,7 +57,7 @@
                 <td>{{ $info->priority }}</td>
                 <td>{{ $info->categoryInformation->name }}</td>
                 <td class="text-center">
-                  <a href="{{ $info->letter }}" class="text-reset d-inline-block">
+                  <a href="/download/{{ $info->letter }}" class="text-reset d-inline-block">
                     <svg width="25" height="25">
                       <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-file"></use>
                     </svg>

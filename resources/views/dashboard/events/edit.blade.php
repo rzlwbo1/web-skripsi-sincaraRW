@@ -99,7 +99,7 @@
             <label for="surat" class="form-label">Tambah Surat (opsional)</label>
             
             @if ($event->letter)
-              <p class="my-1 text-black-50">file sebelumnya : {{ Str::of($event->letter)->after('events-letter/'); }}</p>
+              <p class="my-1 text-black-50">File sebelumnya : <a href="/download/{{ $event->letter }}" target="_self">{{ Str::of($event->letter)->after('events-letter/') }}</a></p>
             @else
               <p class="my-3 text-info">file sebelumnya : Tidak ada</p>
             @endif
@@ -112,7 +112,7 @@
           </div>
 
       
-          <button type="submit" class="btn btn-primary">Edit Acara</button>
+          <button type="submit" class="btn btn-primary w-100">Edit Acara</button>
         </form>
       </div>
     </div>

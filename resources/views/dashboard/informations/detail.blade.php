@@ -22,7 +22,7 @@
                 <h5 class="bg-info text-white d-inline-block rounded px-3 py-2">Prioritas : {{ $info->priority }}</h5>
                 <p class="fs-5 mb-1 mt-3">{!! $info->body !!}</p>
 
-                <h6>Surat Terkait : <a href="{{ $info->letter }}">Download</a></h6>
+                <h6>Surat Terkait : <a href="/download/{{ $info->letter }}">Download</a></h6>
             </div>
           </div>
         </div>

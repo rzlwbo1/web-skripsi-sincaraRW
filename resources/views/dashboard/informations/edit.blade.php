@@ -76,7 +76,8 @@
             <label for="surat" class="form-label">Tambah Surat (opsional)</label>
             
             @if ($info->letter)
-              <p class="my-1 text-black-50">file sebelumnya : {{ Str::of($info->letter)->after('information-letter/'); }}</p>
+              <p class="my-1 text-black-50">file sebelumnya : <a href="/download/{{ $info->letter }}" target="_self">{{ Str::of($info->letter)->after('information-letter/') }}</a></p>
+              {{-- <p class="my-1 text-black-50">file sebelumnya : {{ Str::of($info->letter)->after('information-letter/'); }}</p> --}}
             @else
               <p class="my-3 text-info">file sebelumnya : Tidak ada</p>
             @endif

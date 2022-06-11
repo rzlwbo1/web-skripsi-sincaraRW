@@ -17,7 +17,7 @@
         <hr>
         <p class="fs-5 mb-1 mt-3">{!! $info->body !!}</p>
 
-        <h6>Surat Terkait : <a href="{{ $info->letter }}">Download</a></h6>
+        <h6>Surat Terkait : <a href="/download/{{ $info->letter }}" target="_self">Download</a></h6>
 
         <br>
         <a href="/informasi" role="button" class="btn btn-outline-dark">Kembali</a>
