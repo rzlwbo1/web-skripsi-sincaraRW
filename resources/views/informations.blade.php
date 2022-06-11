@@ -24,7 +24,9 @@
 
             <h6 class="card-subtitle text-muted my-3">
               Pembuat : <a href="/acara?users=">{{ $info->user->name }}</a>
+              {{ $info->updated_at->format('l j F Y h:i:s') }}
             </h6>
+
 
             <p class="card-text">{{ $info->excerpt }}</p>
 

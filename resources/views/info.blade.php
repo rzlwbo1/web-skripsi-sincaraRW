@@ -12,7 +12,9 @@
           <img src="https://picsum.photos/seed/information/300" alt="images">
         @endif
 
-        <p class="text-muted mt-4">Pembuat : <a href="/acara?users={{ $info->user->username }}" class="text-reset">{{ $info->user->name }}</a> dalam kategori <a href="/acara?category_event={{ $info->categoryInformation->slug }}" class="text-reset">{{ $info->categoryInformation->name }}</a></p>
+        <p class="text-muted mt-4">Pembuat : <a href="/acara?users={{ $info->user->username }}" class="text-reset fw-bold">{{ $info->user->name }}</a> dalam kategori {{ $info->categoryInformation->name }}</p>
+
+        <p class="text-muted">Tanggal dibuat : {{ $info->created_at }}</p>
 
         <hr>
         <p class="fs-5 mb-1 mt-3">{!! $info->body !!}</p>

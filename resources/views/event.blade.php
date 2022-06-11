@@ -14,12 +14,14 @@
           <img src="https://picsum.photos/seed/{{ $event->categoryEvent->slug }}/300" alt="images">
         @endif
 
-        <p class="text-muted mt-4">Pembuat : <a href="/acara?users={{ $event->user->username }}" class="text-reset">{{ $event->user->name }}</a> dalam kategori <a href="/acara?category_event={{ $event->categoryEvent->slug }}" class="text-reset">{{ $event->categoryEvent->name }}</a></p>
-        {{-- <p>{{ $event->body }}</p> --}}
+        <p class="text-muted mt-4">Pembuat : <a href="/acara?users={{ $event->user->username }}" class="text-reset fw-bold">{{ $event->user->name }}</a> dalam kategori {{ $event->categoryEvent->name }}</p>
+
+        {{-- link backup --}}
+        {{-- <a href="/acara?category_event={{ $event->categoryEvent->slug }}" class="text-reset">{{ $event->categoryEvent->name }}</a> --}}
 
         <hr>
         <div class="agenda">
-          <h5>Hari & Tanggal : <span class="date">{{ $event->date_at }}</span></h5>
+          <h5>Hari & Tanggal : <span class="date">{{ $event->date_at}}</span></h5>
           <h5>Waktu : {{ $event->time_at }}</h5>
           <h5>Lokasi : {{ $event->location }}</h5>
         </div>
