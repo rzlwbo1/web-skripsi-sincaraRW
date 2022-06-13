@@ -11,7 +11,7 @@ class InformationController extends Controller
 
         // pake eager loading
         $informations = Information::with(['user', 'categoryInformation'])
-            ->filter(request(['search_query', 'category_info']))->latest()->paginate(6);
+            ->filter(request(['search_query', 'category_info']))->latest()->get();
 
         return view('informations', [
             'titleSub' => "Semua Informasi",
