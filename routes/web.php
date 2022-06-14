@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CetakLaporan;
 use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\DashboardInformationsController;
 use App\Http\Controllers\DownloadController;
@@ -102,3 +103,8 @@ Route::get('/download/{path}/{url}', [DownloadController::class, 'download']);
 // tidak mengizinkan method show jalan, karna ga perllu
 // buat middleware admin sendiri dan assign ke routes ini
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+
+
+Route::get("/laporan", [CetakLaporan::class, 'index']);
+Route::post("/cetak-laporan", [CetakLaporan::class, 'cetakLaporan']);
+
