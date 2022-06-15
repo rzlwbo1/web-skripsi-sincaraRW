@@ -12,7 +12,12 @@
 
   <div class="container-fluid py-4">
     <h2 class="text-center">Laporan Acara</h2>
-    <p class="text-center">Tanggal : {{ $res->start }} - {{ $res->end }}</p>
+    @php
+      date_default_timezone_set("Asia/Jakarta");
+      $start = date_create($res->start);
+      $end = date_create($res->end);
+    @endphp
+    <p class="text-center">Tanggal : {{ date_format($start, 'd-m-Y'); }} - {{ date_format($end, 'd-m-Y')}}</p>
 
     <div class="container py-4">
       <table class="table table-bordered border-dark table-sm">
@@ -24,11 +29,15 @@
         </tr>
   
         @foreach ($reports as $report)
+        @php
+          date_default_timezone_set("Asia/Jakarta");
+          $dateObj = date_create($report->date_at);
+        @endphp
           <tr>
             <th class="text-center">{{ $loop->iteration }}</th>
             <td>{{ $report->categoryEvent->name }}</td>
             <td>{{ $report->location }}</td>
-            <td id="date">{{ $report->date_at }}</td>
+            <td id="date">{{ date_format($dateObj, "d-m-Y"); }}</td>
           </tr>
         @endforeach
       </table>
@@ -37,29 +46,10 @@
       <div class="signature text-end" style="margin-top: 15%">
         <h6>Ketua RW 014</h6>
         <br><br>
-        <p>Caswan</p>
+        <p>Syafwan</p>
       </div>
     </div>
   </div>
 
-
-  <script>
-    window.onload = function() {
-
-
-      const dateElem = document.querySelectorAll('#date');
-
-      dateElem.forEach((d) => {
-        const newDate = new Date(d.innerHTML).toDateString();
-        d.innerHTML = newDate
-
-      })
-
-
-      // console.log(newDate);
-
-    }
-
-  </script>
 </body>
 </html>

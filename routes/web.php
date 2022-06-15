@@ -102,9 +102,9 @@ Route::get('/download/{path}/{url}', [DownloadController::class, 'download']);
 // admin controler
 // tidak mengizinkan method show jalan, karna ga perllu
 // buat middleware admin sendiri dan assign ke routes ini
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+// Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
-
+// Cetak Laporan
 Route::get("/laporan", [CetakLaporan::class, 'index']);
-Route::post("/cetak-laporan", [CetakLaporan::class, 'cetakLaporan']);
+Route::post("/cetak-laporan", [CetakLaporan::class, 'cetakLaporan'])->middleware("auth");
 

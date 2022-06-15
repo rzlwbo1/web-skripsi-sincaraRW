@@ -43,7 +43,7 @@
           Proses...
         </button>
         <button class="w-100 btn btn-primary btn-lg btn-login" type="submit">Masuk</button>
-        <p class="mt-3">Register ?<a href="/register">Register</a></p>
+        {{-- <p class="mt-3">Register ?<a href="/register">Register</a></p> --}}
       </form>
     </main>
   </div>
