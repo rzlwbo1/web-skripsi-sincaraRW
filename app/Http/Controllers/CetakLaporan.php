@@ -13,6 +13,7 @@ class CetakLaporan extends Controller
 
     return view('laporan', [
       'title' => "Cetak laporan",
+      'state' => "Laporan Acara",
       "active" => "laporan",
     ]);
 
@@ -21,10 +22,7 @@ class CetakLaporan extends Controller
   public function cetakLaporan(Request $request)
   {
 
-    // 2022-06-14
-
     $reports = Event::whereBetween('date_at', [$request->start, $request->end])->get();
-
 
     return view('cetak', [
       'active' => 'laporan',

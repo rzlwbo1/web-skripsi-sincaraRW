@@ -105,6 +105,6 @@ Route::get('/download/{path}/{url}', [DownloadController::class, 'download']);
 // Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
 // Cetak Laporan
-Route::get("/laporan", [CetakLaporan::class, 'index']);
+Route::get("/dashboard/report", [CetakLaporan::class, 'index'])->middleware('auth');
 Route::post("/cetak-laporan", [CetakLaporan::class, 'cetakLaporan'])->middleware("auth");
 

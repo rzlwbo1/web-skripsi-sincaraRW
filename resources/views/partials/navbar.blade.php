@@ -15,11 +15,6 @@
         <li class="nav-item">
           <a class="nav-link {{ $active === "informasi" ? 'active' : '' }}" href="/informasi">Informasi</a>
         </li>
-        @auth
-          <li class="nav-item">
-            <a class="nav-link {{ $active === "laporan" ? 'active' : '' }}" href="/laporan">Cetak Laporan</a>
-          </li>
-        @endauth
         {{-- <li class="nav-item">
           <a class="nav-link {{ $active === "categories" ? 'active' : '' }}" href="/categories">Kategori</a>
         </li> --}}

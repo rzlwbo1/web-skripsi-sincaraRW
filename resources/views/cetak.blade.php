@@ -27,21 +27,26 @@
           <th>Lokasi</th>
           <th>Tanggal</th>
         </tr>
-  
-        @foreach ($reports as $report)
-        @php
-          date_default_timezone_set("Asia/Jakarta");
-          $dateObj = date_create($report->date_at);
-        @endphp
+        
+        @if ($reports->count() > 0)
+          @foreach ($reports as $report)
+          @php
+            date_default_timezone_set("Asia/Jakarta");
+            $dateObj = date_create($report->date_at);
+          @endphp
+            <tr>
+              <th class="text-center">{{ $loop->iteration }}</th>
+              <td>{{ $report->categoryEvent->name }}</td>
+              <td>{{ $report->location }}</td>
+              <td id="date">{{ date_format($dateObj, "d-m-Y"); }}</td>
+            </tr>
+          @endforeach  
+        @else
           <tr>
-            <th class="text-center">{{ $loop->iteration }}</th>
-            <td>{{ $report->categoryEvent->name }}</td>
-            <td>{{ $report->location }}</td>
-            <td id="date">{{ date_format($dateObj, "d-m-Y"); }}</td>
+            <td colspan="4" class="text-center text-danger fw-bold">Tidak ada Acara pada rentang tanggal berikut</td>
           </tr>
-        @endforeach
+        @endif
       </table>
-
 
       <div class="signature text-end" style="margin-top: 15%">
         <h6>Ketua RW 014</h6>

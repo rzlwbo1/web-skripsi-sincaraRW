@@ -34,6 +34,15 @@
       </a>
     </li>
 
+    <li class="nav-title">Laporan</li>
+    <li class="nav-item">
+      <a class="nav-link {{ Request::is('dashboard/report*') ? 'active' : '' }}" href="/dashboard/report">
+        <svg class="nav-icon">
+          <use xlink:href="/admin/vendors/@coreui/icons/svg/free.svg#cil-print"></use>
+        </svg> Cetak Laporan
+      </a>
+    </li>
+
 
     @can('admin')
       <li class="nav-title">Administrator</li>

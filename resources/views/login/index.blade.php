@@ -22,7 +22,7 @@
           </div>
         @endif
 
-        <h1 class="h3 mb-3">Masuk Akun</h1>
+        <h1 class="h3 mb-3">Masuk Akun Pengurus</h1>
   
         <div class="form-floating">
           <input type="email" class="form-control @error('email') is-invalid @enderror" id="emailField" placeholder="email@example.com" name="email" value="{{ old('email') }}" autofocus required>
