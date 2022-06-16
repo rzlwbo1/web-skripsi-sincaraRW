@@ -11,6 +11,7 @@ use App\Http\Controllers\CetakLaporan;
 use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\DashboardInformationsController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\RegisterController;
 
@@ -40,14 +41,15 @@ Route::get('/user/{id}', function($id) {
 
 // ///////
 
-Route::get('/', function () {
+// Route::get('/', function () {
     
-  // ini pake depedency injection View
-  return View::make('home', [
-      "title" => "beranda",
-      "active" => 'beranda',
-  ]);
-});
+//   // ini pake depedency injection View
+//   return View::make('home', [
+      
+//   ]);
+// });
+
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get("/about", function() {
   return view('about', [

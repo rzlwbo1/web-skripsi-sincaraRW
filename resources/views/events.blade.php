@@ -34,37 +34,37 @@
 
   @if (count($events) > 0)
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3 main">
-    @foreach ($events as $event)
+      @foreach ($events as $event)
 
-      <div class="col">
-        <div class="card">
-          <p hidden id="prioritas">{{ $event->priority }}</p>
-          <p class="card-header"><a href="/acara?category_event={{ $event->categoryEvent->slug }}">{{ $event->categoryEvent->name }}</a></p>
-    
-          @if ($event->image)
-            <img src="{{ asset('storage/' . $event->image) }}" alt="images" class="img-fluid card-image-top" style="border-radius: 0;">  
-          @else
-            <img src="https://picsum.photos/seed/{{ $event->categoryEvent->slug }}/300" alt="images" class="img-fluid card-image-top" style="border-radius: 0;" height="250">
-          @endif
-    
-          <div class="card-body">
-            <h3 class="card-title">
-              <a href="/acara/{{ $event->slug }}" class="text-reset text-black text-decoration-none">{{ $event->title }}</a>
-            </h3>
+        <div class="col">
+          <div class="card">
+            <p hidden id="prioritas">{{ $event->priority }}</p>
+            <p class="card-header"><a href="/acara?category_event={{ $event->categoryEvent->slug }}">{{ $event->categoryEvent->name }}</a></p>
+      
+            @if ($event->image)
+              <img src="{{ asset('storage/' . $event->image) }}" alt="images" class="img-fluid card-image-top" style="border-radius: 0;">  
+            @else
+              <img src="https://picsum.photos/seed/{{ $event->categoryEvent->slug }}/300" alt="images" class="img-fluid card-image-top" style="border-radius: 0;" height="250">
+            @endif
+      
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="/acara/{{ $event->slug }}" class="text-reset text-black text-decoration-none">{{ $event->title }}</a>
+              </h3>
 
-            <h6 class="card-subtitle text-muted my-3">
-              Pembuat : <a href="/acara?users={{ $event->user->username }}">{{ $event->user->name }}</a>
-            </h6>
-            
-            <p class="text-muted">Pada pukul : {{ $event->time_at }}</p>
-            <p class="card-text">{{ $event->excerpt }}</p>
+              <h6 class="card-subtitle text-muted my-3">
+                Pembuat : <a href="/acara?users={{ $event->user->username }}">{{ $event->user->name }}</a>
+              </h6>
+              
+              <p class="text-muted">Pada pukul : {{ $event->time_at }}</p>
+              <p class="card-text">{{ $event->excerpt }}</p>
 
-            <a href="/acara/{{ $event->slug }}" class="btn btn-primary w-100">Baca selengkapnya</a>
+              <a href="/acara/{{ $event->slug }}" class="btn btn-primary w-100">Baca selengkapnya</a>
+            </div>
+      
           </div>
-    
         </div>
-      </div>
-    @endforeach
+      @endforeach
     </div>
   @else
     <p>Tidak ada acara & informasi</p>
