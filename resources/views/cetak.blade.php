@@ -20,35 +20,58 @@
     <p class="text-center">Tanggal : {{ date_format($start, 'd-m-Y'); }} - {{ date_format($end, 'd-m-Y')}}</p>
 
     <div class="container py-4">
-      <table class="table table-bordered border-dark table-sm">
-        <tr class="text-center">
-          <th style="width: 70px">No</th>
-          <th>Kategori</th>
-          <th>Lokasi</th>
+      <table class="table table-bordered">
+
+        <tr>
+          <th>ID Acara</th>
+          <th style="width: 100px">Link acara</th>
+          <th>Nama Acara</th>
           <th>Tanggal</th>
+          <th>Waktu</th>
+          <th>Kategori</th>
+          <th>Prioritas</th>
+          <th>Surat Terkait</th>
         </tr>
-        
+
         @if ($reports->count() > 0)
-          @foreach ($reports as $report)
-          @php
-            date_default_timezone_set("Asia/Jakarta");
-            $dateObj = date_create($report->date_at);
-          @endphp
+          @foreach ($reports as $rep)
             <tr>
-              <th class="text-center">{{ $loop->iteration }}</th>
-              <td>{{ $report->categoryEvent->name }}</td>
-              <td>{{ $report->location }}</td>
-              <td id="date">{{ date_format($dateObj, "d-m-Y"); }}</td>
-            </tr>
-          @endforeach  
+              <td>{{ $rep->id }}</td>
+              <td><a href="http://127.0.0.1:8000/acara/{{ $rep->slug }}">http://127.0.0.1:8000/acara/{{ $rep->slug }}</a></td>
+              <td>{{ $rep->title }}</td>
+              <td>{{ $rep->date_at }}</td>
+              <td>{{ $rep->time_at }}</td>
+              <td>{{ $rep->categoryEvent->name }}</td>
+              <td>{{ $rep->priority }}</td>
+              <td><a href="/download/{{ $rep->letter }}">Surat</a></td>
+            </tr>  
+          @endforeach
         @else
-          <tr>
-            <td colspan="4" class="text-center text-danger fw-bold">Tidak ada Acara pada rentang tanggal berikut</td>
-          </tr>
+            
         @endif
       </table>
 
-      <div class="signature text-end" style="margin-top: 15%">
+      <table class="table table-bordered">
+        <tr>
+          <th>Total Acara</th>
+          <td>{{ $reports->count() }}</td>
+        </tr>
+
+        <tr>
+          <th>Total Acara Penting 
+            <small>prioritas = 1</small>
+          </th>
+          <td>{{ $sum[0] }}</td>
+        </tr>
+
+        <tr>
+          <th>Total Kategori Formal</th>
+          <td>{{ $sum[1] }}</td>
+        </tr>
+      </table>
+
+
+      <div class="signature text-end mt-5">
         <h6>Ketua RW 014</h6>
         <br><br>
         <p>Syafwan</p>
@@ -58,3 +81,41 @@
 
 </body>
 </html>
+
+
+{{-- <table class="table table-bordered" cellpadding="3">
+
+  @if ($reports->count() > 0)
+    @foreach ($reports as $rep)
+      <tr>
+        <th class="text-center">Nama Acara</th>
+        <th colspan="5" class="text-center">{{ $rep->title }}</th>
+      </tr>
+
+      <tr>
+        <th rowspan="3" style="padding: 50px 0; text-align:center;">
+          Detail
+        </th>
+        <th>Kategori</th>
+        <th>Lokasi</th>
+        <th>Waktu</th>
+        <th>Tanggal</th>
+        <th>Prioritas</th>
+      </tr>
+
+      <tr>
+        <td>{{ $rep->categoryEvent->name }}</td>
+        <td>{{ $rep->location }}</td>
+        <td>{{ $rep->time_at }}</td>
+        <td>{{ $rep->date_at }}</td>
+        <td>{{ $rep->priority }}</td>
+      </tr>
+      
+      <tr>
+        <td colspan="5" class="text-center">http://127.0.0.1:8000/acara/{{ $rep->slug }}</td>
+      </tr>
+    @endforeach
+  @else
+      
+  @endif
+</table> --}}

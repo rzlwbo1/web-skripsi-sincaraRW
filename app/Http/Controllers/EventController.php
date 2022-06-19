@@ -31,7 +31,7 @@ class EventController extends Controller
       "titleSub" => 'Semua Acara ' . $titleOnPage,
       "active" => 'acara',
       // pake eager loader
-      "events" => Event::latest()->with(['user', 'categoryEvent'])->filter(request(['search_query', 'category_event', 'users']))->get(),
+      "events" => Event::with(['user', 'categoryEvent'])->filter(request(['search_query', 'category_event', 'users']))->get(),
     ]);
 
   }
