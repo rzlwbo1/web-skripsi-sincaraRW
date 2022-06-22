@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CetakLaporan;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\DashboardInformationsController;
 use App\Http\Controllers\DownloadController;
@@ -86,12 +87,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', function() {
-
-  // awalnya pake controller tpi di ganti closures aja
-  return view('dashboard.index', ["state" => "Dashboard"]);
-
-})->middleware('auth');
+Route::get('/dashboard', [DashboardAdminController::class, 'index'])->middleware('auth');
 
 
 // CRUD DASHBOARD using resources controller
