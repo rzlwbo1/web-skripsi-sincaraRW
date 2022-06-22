@@ -26,10 +26,16 @@ class CetakLaporan extends Controller
     $sum = [];
 
     $reports = Event::whereBetween('date_at', [$request->start, $request->end])->get();
-    $prioSum = Event::select('priority')->where('priority', 1)->get()->count();
+
+    $prioSum = Event::whereBetween('date_at', [$request->start, $request->end])->select('priority')->where('priority', 1)->get()->count();
+    
     $formalSum = Event::whereBetween('date_at', [$request->start, $request->end])->select('category_event_id')->where('category_event_id', 2)->get()->count();
 
-    $sum = [$prioSum, $formalSum];
+    $nonFormalSum = Event::whereBetween('date_at', [$request->start, $request->end])->select('category_event_id')->where('category_event_id', 3)->get()->count();
+
+    $undanganSum = Event::whereBetween('date_at', [$request->start, $request->end])->select('category_event_id')->where('category_event_id', 1)->get()->count();
+
+    $sum = collect([$prioSum, $formalSum, $nonFormalSum, $undanganSum]);
 
     return view('cetak', [
       'active' => 'laporan',

@@ -19,12 +19,12 @@
     @endphp
     <p class="text-center">Tanggal : {{ date_format($start, 'd-m-Y'); }} - {{ date_format($end, 'd-m-Y')}}</p>
 
-    <div class="container py-4">
+    <div class="container py-4 table-responsive-md">
       <table class="table table-bordered">
 
         <tr>
           <th>ID Acara</th>
-          <th style="width: 100px">Link acara</th>
+          <th>Link acara</th>
           <th>Nama Acara</th>
           <th>Tanggal</th>
           <th>Waktu</th>
@@ -41,7 +41,11 @@
               <td>{{ $rep->title }}</td>
               <td>{{ $rep->date_at }}</td>
               <td>{{ $rep->time_at }}</td>
+              @if ($rep->categoryEvent->name == 'Formal')
+              <th>{{ $rep->categoryEvent->name }}</th>
+              @else
               <td>{{ $rep->categoryEvent->name }}</td>
+              @endif
               <td>{{ $rep->priority }}</td>
               <td><a href="/download/{{ $rep->letter }}">Surat</a></td>
             </tr>  
@@ -51,7 +55,7 @@
         @endif
       </table>
 
-      <table class="table table-bordered">
+      <table class="table table-bordered mt-5">
         <tr>
           <th>Total Acara</th>
           <td>{{ $reports->count() }}</td>
@@ -67,6 +71,16 @@
         <tr>
           <th>Total Kategori Formal</th>
           <td>{{ $sum[1] }}</td>
+        </tr>
+
+        <tr>
+          <th>Total Kategori Non-Formal</th>
+          <td>{{ $sum[2] }}</td>
+        </tr>
+
+        <tr>
+          <th>Total Kategori Undangan</th>
+          <td>{{ $sum[3] }}</td>
         </tr>
       </table>
 
