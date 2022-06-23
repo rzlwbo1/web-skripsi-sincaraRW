@@ -3,11 +3,18 @@
 @section('content-admin')
   <div class="body flex-grow-1 px-3">
     <div class="container">
+
+      
       <form action="/cetak-laporan" method="post">
         @csrf
         
         <div class="row g-3 justify-content-center"> 
           <h3>Pilih Rentang Tanggal</h3>
+          @if ($errors->any())
+            <div class="alert alert-danger">
+              <strong>Tanggal wajib dipilih!!</strong>
+            </div>
+          @endif
           <hr>
           <div class="col-sm-4">
             <label for="" class="form-label">Tanggal awal</label>

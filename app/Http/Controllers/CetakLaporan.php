@@ -23,6 +23,12 @@ class CetakLaporan extends Controller
   public function cetakLaporan(Request $request)
   {
 
+    // validasi
+    $request->validate([
+      'start' => 'required',
+      'end' => 'required'
+    ]);
+
     $sum = [];
 
     $reports = Event::whereBetween('date_at', [$request->start, $request->end])->get();
