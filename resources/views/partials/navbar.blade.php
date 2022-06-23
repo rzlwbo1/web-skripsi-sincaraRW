@@ -36,7 +36,7 @@
               <li><a class="dropdown-item" href="/dashboard">Dashboard Saya</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <form action="/logout" method="post">
+                <form action="/logout" method="post" class="mb-0">
                   @csrf
                   <button class="dropdown-item">Keluar</button>
                 </form>

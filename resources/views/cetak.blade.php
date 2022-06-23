@@ -51,7 +51,11 @@
             </tr>  
           @endforeach
         @else
-            
+          <tr>
+            <td colspan="8" class="text-center text-danger">
+              <h4>Tidak ada acara pada rentang tanngal ini</h4>  
+            </td>  
+          </tr>  
         @endif
       </table>
 
@@ -86,7 +90,7 @@
 
 
       <div class="signature text-end mt-5">
-        <h6>Ketua RW 014</h6>
+        <h6 class="mb-4">Ketua RW 014</h6>
         <br><br>
         <p>Syafwan</p>
       </div>
