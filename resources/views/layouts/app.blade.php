@@ -38,6 +38,23 @@
 
         console.log(btnLogin.previousElementSibling);
       }
+
+      window.addEventListener('DOMContentLoaded', (evt) => {
+
+        if(document.querySelector('.date')) {
+          let dateElem = document.querySelectorAll('.date');
+
+          dateElem.forEach((e,i) => {
+
+            let date = new Date(e.textContent).toLocaleDateString();
+            e.innerHTML = date;
+
+          })
+
+          // console.log(dateElem);
+        }
+
+      });
     </script>
 
   </body>

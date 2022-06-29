@@ -35,7 +35,7 @@
               </h6>
 
 
-              <p class="card-text">{{ $info->excerpt }}</p>
+              <p class="card-text">{!! $info->excerpt !!}</p>
 
               <a href="/informasi/{{ $info->slug }}" class="btn btn-primary w-100">Baca selengkapnya</a>
             </div>
@@ -72,6 +72,7 @@
                 Pembuat : <a href="/acara?users={{ $event->user->username }}">{{ $event->user->name }}</a>
               </h6>
               
+              <p class="text-muted mb-1">Pada tanggal : <span class="date">{{ $event->date_at }}</span></p>
               <p class="text-muted">Pada pukul : {{ $event->time_at }}</p>
               <p class="card-text">{{ $event->excerpt }}</p>
 

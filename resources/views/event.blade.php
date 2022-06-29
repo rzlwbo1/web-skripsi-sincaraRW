@@ -25,7 +25,7 @@
           date_default_timezone_set("Asia/Jakarta");
             $date = date_create($event->date_at);
           @endphp
-          <h5>Hari & Tanggal : <span class="date">{{ date_format($date, 'd-m-Y'); }}</span></h5>
+          <h5>Hari & Tanggal : <span>{{ date_format($date, 'd-m-Y'); }}</span></h5>
           <h5>Waktu : {{ $event->time_at }} </h5>
           <h5>Lokasi : {{ $event->location }}</h5>
         </div>

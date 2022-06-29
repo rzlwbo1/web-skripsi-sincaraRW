@@ -40,7 +40,7 @@ class DashboardEventsController extends Controller
 
         $category = CategoryEvent::all();
         return view('dashboard.events.create', [
-            "state" => "Buat Post",
+            "state" => "Buat Acara",
             "category" => $category,
         ]);
     }

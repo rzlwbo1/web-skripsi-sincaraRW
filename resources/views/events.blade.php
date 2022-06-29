@@ -56,6 +56,7 @@
                 Pembuat : <a href="/acara?users={{ $event->user->username }}">{{ $event->user->name }}</a>
               </h6>
               
+              <p class="text-muted mb-1">Pada tanggal : <span class="date">{{ $event->date_at }}</span></p>
               <p class="text-muted">Pada pukul : {{ $event->time_at }}</p>
               <p class="card-text">{{ $event->excerpt }}</p>
 
