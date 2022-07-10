@@ -10,8 +10,8 @@ class DashboardAdminController extends Controller
 {
     public function index() {
 
-        $sumAcara = Event::where('user_id', 1)->get()->count();
-        $sumInfos = Information::where('user_id', 1)->get()->count();
+        $sumAcara = Event::where('user_id', 6)->get()->count();
+        $sumInfos = Information::where('user_id', 6)->get()->count();
 
         $sum = collect([$sumAcara, $sumInfos]);
 
