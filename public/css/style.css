@@ -64,3 +64,41 @@ body::-webkit-scrollbar-thumb:hover {
   justify-items: center;
   align-items: center;
 }
+
+
+input#prioritas,
+input#category,
+input#lokasi,
+input#tanggal,
+input#waktu,
+input#surat {
+  width: 50%;
+}
+
+
+
+@media screen and (max-width: 575.98px) {
+
+  .form-signin {
+    /* width: 400px; */
+    /* flex-basis: 400px; */
+    padding: 15px;
+  
+    grid-column: 1 / -1;
+  
+    --bs-border-radius: 10px;
+  }
+
+
+  /* dashboard create input */
+  input#prioritas,
+  input#category,
+  input#lokasi,
+  input#tanggal,
+  input#waktu,
+  input#surat {
+    width: 100%;
+  }
+
+
+}

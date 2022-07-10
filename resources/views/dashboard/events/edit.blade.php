@@ -44,7 +44,7 @@
             <trix-editor input="body"  required></trix-editor>
           </div>
       
-          <div class="mb-3 w-25">
+          <div class="mb-3">
             <label for="prioritas" class="form-label">Prioritas</label>
             <input type="number" class="form-control  @error('priority') is-invalid @enderror" id="prioritas" name="priority" value="{{ old('priority', $event->priority) }}" required>
             <small class="text-body">*berupa angka 1-10</small>
@@ -53,7 +53,7 @@
             @enderror
           </div>
     
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="category">Kategori</label>
             <select name="category_event_id" id="category" class="form-select @error('category_event_id') is-invalid @enderror" required>
               <option value="0">--Pilih kategori--</option>
@@ -70,16 +70,16 @@
             @enderror
           </div>
 
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="tanggal" class="form-label">Lokasi</label>
-            <input type="text" class="form-control @error('location') is-invalid @enderror" id="tanggal" name="location" value="{{ old('location', $event->location) }}" required>
+            <input type="text" class="form-control @error('location') is-invalid @enderror" id="lokasi" name="location" value="{{ old('location', $event->location) }}" required>
             <small class="d-block text-body mt-0">Contoh : Bekasi, Tambun-selatan</small>
             @error('location')
               <div class="invalid-feedback">Lokasi wajib di isi</div>
             @enderror
           </div>
       
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="tanggal" class="form-label">Tanggal</label>
             <input type="date" class="form-control @error('date_at') is-invalid @enderror" id="tanggal" name="date_at" value="{{ old('date_at', $event->date_at) }}" required>
             @error('date_at')
@@ -87,15 +87,15 @@
             @enderror
           </div>
       
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="Waktu" class="form-label">Waktu</label>
-            <input type="time" class="form-control @error('time_at') is-invalid @enderror" id="Waktu" name="time_at" value="{{ old('time_at', $event->time_at) }}" required>
+            <input type="time" class="form-control @error('time_at') is-invalid @enderror" id="waktu" name="time_at" value="{{ old('time_at', $event->time_at) }}" required>
             @error('time_at')
               <div class="invalid-feedback">Waktu wajib di isi</div>
             @enderror
           </div>
 
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="surat" class="form-label">Tambah Surat (opsional)</label>
             
             @if ($event->letter)

@@ -44,7 +44,7 @@
             <trix-editor input="body" value="{{ old('body') }}"></trix-editor>
           </div>
       
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="prioritas" class="form-label">Prioritas</label>
             <input type="number" class="form-control  @error('priority') is-invalid @enderror" id="prioritas" name="priority" value="{{ old('priority', $info->priority) }}" required>
             <small class="text-body">*berupa angka 1-10</small>
@@ -53,7 +53,7 @@
             @enderror
           </div>
     
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="category">Kategori</label>
             <select name="category_information_id" id="category" class="form-select @error('category_information_id') is-invalid @enderror" required>
 
@@ -72,7 +72,7 @@
             @enderror
           </div>
 
-          <div class="mb-3 w-50">
+          <div class="mb-3">
             <label for="surat" class="form-label">Tambah Surat (opsional)</label>
             
             @if ($info->letter)

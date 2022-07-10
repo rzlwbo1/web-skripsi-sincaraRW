@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('content-admin')
-  <div class="body flex-grow-1 px-3">
+  <div class="body flex-grow-1 px-md-3">
     <div class="container-lg">
       <div class="row mb-4">
         <div class="col-lg-10">
@@ -11,7 +11,7 @@
 
 
                 @if ($info->image)
-                  <img src="{{ asset('storage/' . $info->image) }}" alt="images" class="img-fluid rounded" style="height: 350px;">  
+                  <img src="{{ asset('storage/' . $info->image) }}" alt="images" class="img-fluid rounded" style="height: 350px; object-fit: cover;">  
                 @else
                   <img src="https://picsum.photos/seed/information/300" alt="images">
                 @endif
@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <div class="col-lg position-relative">
+        <div class="col-lg position-relative mt-3 mt-md-0">
           <div class="aksi-detail position-sticky">
             <a href="/dashboard/informations" class="btn btn-secondary text-white mb-2">
               Kembali ke semua acara
