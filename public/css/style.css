@@ -67,13 +67,14 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 input#prioritas,
-input#category,
+select#category,
 input#lokasi,
 input#tanggal,
 input#waktu,
 input#surat {
   width: 50%;
 }
+
 
 
 
@@ -92,7 +93,7 @@ input#surat {
 
   /* dashboard create input */
   input#prioritas,
-  input#category,
+  select#category,
   input#lokasi,
   input#tanggal,
   input#waktu,

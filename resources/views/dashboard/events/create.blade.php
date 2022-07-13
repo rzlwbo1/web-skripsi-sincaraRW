@@ -42,7 +42,7 @@
             <input type="number" class="form-control  @error('priority') is-invalid @enderror" id="prioritas" name="priority" value="{{ old('priority') }}" required>
             <small class="text-body">*berupa angka 1-10</small>
             @error('priority')
-              <div class="invalid-feedback">Priorotas wajib di isi</div>
+              <div class="invalid-feedback">Prioritas wajib di isi</div>
             @enderror
           </div>
     
